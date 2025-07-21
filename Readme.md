@@ -35,5 +35,5 @@ Para detalles completos, consultar el [README de la carpeta `data`](./data/Readm
 ## Estado actual y próximos pasos
 
 - **Actualmente:** recopilando y documentando URLs legítimas de banca española mediante scraping básico.
-- **Pendiente:** aplicar limpieza de datos, crawling, y técnicas anti-bot para ampliar el dataset.
+- **Pendiente:** aplicar limpieza de datos, crawling y técnicas anti-bot para ampliar el dataset.
 - **Próximo objetivo:** ampliar la recolección de datos a otros sectores clave (SaaS, retail, logística, sector público, etc.) siguiendo la tabla maestra de empresas objetivo.
