@@ -5,6 +5,13 @@ Esta carpeta contiene los notebooks usados en el desarrollo del proyecto.
 - `phishing_detector.ipynb`: Notebook principal, incluye el pipeline completo de análisis y modelado.
 - `filtrado_empresas_es.ipynb`: Descarga y filtrado de URLs de empresas españolas.
 - `filtrado.ipynb`: Análisis exploratorio de datos, visualizaciones y estadísticas.
+- `scraping_url_leg.ipynb`: Scraping básico de URLs legítimas de banca (sin limpieza ni crawling, en desarrollo).
+- `scraping_secundarios.ipynb`: Pruebas de scraping en otros sectores (en desarrollo).
+
+## Estado actual
+
+- Actualmente los notebooks de scraping solo implementan scraping básico sobre banca, sin limpieza, crawling ni uso de Selenium.
+- En próximas fases se añadirá procesamiento avanzado y automatización del scraping para otros sectores.
 
 ## Limitaciones del dataset filtrado
 
