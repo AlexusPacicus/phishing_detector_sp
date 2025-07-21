@@ -6,17 +6,19 @@ Documentar el proceso de recopilación de URLs legítimas de los principales ser
 
 ## 2. Lista de servicios incluidos y resultados
 
-| Empresa       | URLs únicas | Fecha      | Estado / Observaciones                        |
+| Empresa       | URLs únicas | Fecha      | Observaciones principales                      |
 |---------------|------------|------------|-----------------------------------------------|
-| Box           | 30         | 22/07/2025 | OK – Muchos enlaces internos en home          |
-| Slack         | 28         | 22/07/2025 | OK – Muchos enlaces internos en home          |
-| Google        | 4          | 22/07/2025 | Muy pocos resultados, home minimalista        |
-| Zoom          | 3          | 22/07/2025 | Muy pocos resultados, home minimalista        |
+| Box           | 30         | 22/07/2025 | Muchos enlaces internos en home, pero mezcla de rutas (login, ayuda, TOS, etc.) |
+| Slack         | 28         | 22/07/2025 | Muchos enlaces internos en home, mezcla de rutas relevantes y otras auxiliares   |
+| Google        | 4          | 22/07/2025 | Muy pocos enlaces, home minimalista           |
+| Zoom          | 3          | 22/07/2025 | Muy pocos enlaces, home minimalista           |
 | Fastmail      | 2          | 22/07/2025 | Home minimalista, pocos enlaces               |
 | OVHcloud      | 2          | 22/07/2025 | Home minimalista, pocos enlaces               |
-| Mega          | 1          | 22/07/2025 | Home minimalista, solo URL principal          |
-| Yandex Mail   | 1          | 22/07/2025 | Home minimalista, solo URL principal          |
-| iCloud        | 1          | 22/07/2025 | Home minimalista, solo URL principal          |
+| Mega          | 1          | 22/07/2025 | Solo la URL principal obtenida                |
+| Yandex Mail   | 1          | 22/07/2025 | Solo la URL principal obtenida                |
+| iCloud        | 1          | 22/07/2025 | Solo la URL principal obtenida                |
+
+  |
 
 ## 3. Métodos y herramientas empleadas
 
@@ -45,7 +47,7 @@ Documentar el proceso de recopilación de URLs legítimas de los principales ser
 - **Desbalance**: Box y Slack aportan la mayoría de URLs; el resto de empresas tienen muy pocos resultados.
 - Varias webs presentan homes minimalistas y apenas enlazan rutas internas útiles.
 - No hay limpieza ni filtrado de URLs poco relevantes todavía (pendiente).
-- Algunas webs pueden requerir técnicas de scraping avanzado (JavaScript/Selenium) para extraer rutas adicionales.
+- Algunas webs pueden requerir técnicas de scraping avanzado (Selenium) para extraer rutas adicionales.
 
 ## 6. Lecciones aprendidas y recomendaciones
 
