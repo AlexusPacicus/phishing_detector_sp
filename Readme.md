@@ -25,11 +25,10 @@ Para detalles completos, consultar el [README de la carpeta `data`](./data/Readm
 - Clasificación y normalización de tipos de página con un glosario estandarizado.
 - Creación de features y entrenamiento de modelos para la detección de phishing.
 
-## Cómo usar
+## Documentación complementaria
 
-1. Clonar el repositorio.
-2. Instalar dependencias listadas en `requirements.txt`.
-3. Ejecutar los notebooks en `/notebooks` para reproducir análisis y entrenamiento.
-4. Usar scripts en `/scripts` para extracción o procesamiento adicional.
+- [Tabla maestra de empresas objetivo por sector](docs/tabla_maestra_empresas.md)
+
+
 
 ---
