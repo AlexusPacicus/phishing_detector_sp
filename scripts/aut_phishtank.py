@@ -7,7 +7,6 @@ import logging
 import time
 from logging.handlers import RotatingFileHandler
 
-# Configuración rutas igual que OpenPhish
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, 'data', 'raw', 'phishing')  # misma carpeta
 LOGS_DIR = os.path.join(BASE_DIR, 'logs')
