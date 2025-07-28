@@ -2,38 +2,46 @@
 
 ## Descripción
 
-Este proyecto tiene como objetivo desarrollar un modelo de detección de phishing centrado en URLs legítimas y maliciosas del contexto español, con especial atención a los bancos nacionales. Se compone de un pipeline que incluye la recolección, limpieza, clasificación y modelado de datos para mejorar la precisión y relevancia en la identificación de amenazas.
+Este proyecto busca desarrollar un modelo robusto para detectar phishing en URLs, centrado en el contexto español, con énfasis en banca y sectores críticos. El pipeline cubre desde la recolección y limpieza de datos, hasta el entrenamiento y despliegue del modelo.
 
 ## Estructura del proyecto
 
-- `/data`: Contiene los datasets originales (`raw`) y procesados (`processed`), incluyendo el CSV maestro de URLs legítimas.
-- `/notebooks`: Notebooks con análisis exploratorio, limpieza, y modelado.
-- `/models`: Modelos entrenados y scripts para inferencia.
-- `/scripts`: Scripts auxiliares para procesamiento y extracción de datos.
-- `/docs`: Documentación del proyecto, incluyendo la tabla maestra de empresas objetivo y documentación por sector.
-- `README.md`: Documento principal de presentación y guía del proyecto.
+- `/data`: Almacena los datos originales (`raw`) y procesados (`processed`). Todos los feeds de phishing (URLhaus, OpenPhish, PhishTank) se recogen, documentan y guardan de forma individual para asegurar trazabilidad y control de calidad.
+- `/notebooks`: Análisis, limpieza y modelado.
+- `/models`: Modelos entrenados y scripts de inferencia.
+- `/scripts`: Automatizaciones para descarga, limpieza y organización de datos.
+- `/docs`: Documentación por sectores y fuentes.
+- `README.md`: Guía general del proyecto.
 
-## Dataset
+## Recolección y gestión de datos de phishing
 
-El dataset se ha construido combinando URLs legítimas obtenidas mediante navegación manual en webs oficiales de bancos y herramientas OSINT como DNSDumpster y crt.sh. Se ha validado manualmente la accesibilidad y relevancia de las URLs, y se han normalizado las categorías para facilitar el análisis.
+- **Feeds principales:**  
+  - **URLhaus:** Feed `csv_online` (solo URLs activas). No se usa la API por bloqueos a IPs españolas.  
+  - **PhishTank:** Dataset global filtrado, guardando fechas, estado online y verificación.
+  - **OpenPhish:** Feed gratuito, normalmente solo URLs; si es posible, se añade fecha y tipo de amenaza.
+- Todos los datos se almacenan individualmente en `/data/raw/phishing/` para permitir análisis por fuente y máxima transparencia.
+- Durante el preprocesado, los datasets se fusionan, deduplican y normalizan, añadiendo siempre una columna `source`.
 
-Para detalles completos, consultar el [README de la carpeta `data`](./data/Readme_data.md).
+## Dataset de URLs legítimas
+
+URLs recogidas manualmente de bancos españoles y otras fuentes relevantes, priorizando rutas de acceso y autenticación, excluyendo secciones irrelevantes.
 
 ## Metodología
 
-- Extracción de URLs y subdominios mediante scraping manual y herramientas OSINT.
-- Validación manual para eliminar datos irrelevantes o falsos positivos.
-- Clasificación y normalización de tipos de página con un glosario estandarizado.
-- Creación de features y entrenamiento de modelos para la detección de phishing.
+- Automatización y logging de todo el proceso de scraping y recolección.
+- Validación manual y eliminación de falsos positivos.
+- Normalización de campos y análisis exploratorio en notebooks.
 
 ## Documentación complementaria
 
+- [Estructura detallada de datos y fuentes](data/Readme_data.md)
 - [Tabla maestra de empresas objetivo por sector](docs/tabla_maestra_empresas.md)
 
 ---
 
 ## Estado actual y próximos pasos
 
-- **Actualmente:** recopilando y documentando URLs legítimas de banca española mediante scraping básico.
-- **Pendiente:** aplicar limpieza de datos, crawling y técnicas anti-bot para ampliar el dataset.
-- **Próximo objetivo:** ampliar la recolección de datos a otros sectores clave (SaaS, retail, logística, sector público, etc.) siguiendo la tabla maestra de empresas objetivo.
+- **Actualmente:** automatizando la recogida y documentación de datos de phishing y URLs legítimas.
+- **Próximos pasos:** ampliar sectores, fusionar datasets y comenzar el análisis de features y modelado.
+
+---
