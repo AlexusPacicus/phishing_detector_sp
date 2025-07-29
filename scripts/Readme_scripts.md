@@ -1,18 +1,43 @@
-# Scripts
+# 🛠️ Scripts de Automatización y Scraping de Feeds de Phishing
 
-Esta carpeta contiene scripts auxiliares para las distintas fases del proyecto de detección de phishing.  
+Esta carpeta contiene los **scripts profesionales** que automatizan la recolección, limpieza y almacenamiento de feeds de phishing para su análisis posterior.
 
+---
 
-## Descripción de cada script
+## 📜 ¿Qué hace cada script?
 
-- **filtrado_url_es.py**  
-  Filtra el dataset general de PhishTank (`../data/raw/phishtank_urls.csv`) para dejar solo URLs que contienen palabras clave asociadas a empresas españolas. Guarda el resultado en `../data/raw/phishtank_es.csv`.
+- **aut_phishtank.py**  
+  Descarga, limpia y guarda el feed CSV de PhishTank, deduplicando y añadiendo metadatos para trazabilidad.
 
-- **explorar_ds.py**  
-  Carga el dataset original y muestra información básica: primeras filas, columnas y dimensiones. Útil para inspección rápida del CSV original antes de procesarlo.
+- **aut_haus.py**  
+  Automatiza la descarga y limpieza del feed CSV de URLhaus, filtrando líneas corruptas y asegurando un dataset usable.
 
-- **muestra_urls_es.py**  
-  Muestra por pantalla las primeras URLs del dataset filtrado de empresas españolas (`../data/raw/phishtank_es.csv`). Es útil como comprobación tras el filtrado.
+- **automatizacion_openphish.py**  
+  Descarga el feed TXT de OpenPhish (lista de URLs), lo transforma en CSV, elimina duplicados y añade metadatos.
 
-- **scrapping.py**  
-  Script básico de prueba para hacer scraping de la web de PhishTank (actualmente solo obtiene y muestra el título de la página). No realiza scraping real de los datos, pero puede servir como punto de partida para ampliar la funcionalidad.
+- **aut_phishstats.py**  
+  Procesa el feed JSON de PhishStats, normaliza, deduplica y enriquece los datos con metadatos.
+
+---
+
+## ⚙️ Lógica común de los scripts
+
+- **Descarga el feed** correspondiente desde la fuente oficial.
+- **Limpia y valida** la estructura de los datos (eliminando duplicados, líneas corruptas o vacías).
+- **Añade columnas estándar**:  
+  - `fuente`: nombre de la fuente.
+  - `fecha_hora_recoleccion`: timestamp de la ejecución.
+- **Guarda el resultado** en la carpeta `../data/raw/phishing/` con nombre único por fecha y hora.
+- **Registra toda la actividad** (intentos, éxitos, errores) en un archivo rotativo de logs en `../logs/`.
+
+---
+
+## 🚦 Ejecución
+
+Lanza cualquier script desde la terminal, dentro de la carpeta `/scripts`:
+
+```bash
+python aut_phishtank.py
+python aut_haus.py
+python automatizacion_openphish.py
+python aut_phishstats.py
