@@ -45,3 +45,18 @@ URLs recogidas manualmente de bancos españoles y otras fuentes relevantes, prio
 - **Próximos pasos:** ampliar sectores, fusionar datasets y comenzar el análisis de features y modelado.
 
 ---
+
+## Automatización de la recolección de URLs de phishing
+
+Se ha implementado un sistema automatizado para la descarga y procesamiento de feeds de URLs phishing desde el repositorio [TweetFeed](https://github.com/0xDanielLopez/TweetFeed).
+
+### Características principales:
+
+- Clonación y actualización automática del repositorio TweetFeed utilizando GitPython.  
+- Procesamiento del archivo `year.csv` para filtrar URLs phishing y eliminar duplicados.  
+- Añadido de metadatos con timestamp UTC para cada ejecución.  
+- Guardado de los datos procesados en archivos CSV con nombre único por fecha y hora, asegurando histórico.  
+- Registro detallado de todas las operaciones mediante logs rotatorios para facilitar auditoría y depuración.  
+- Programación mediante `crontab` para ejecutar el script dos veces al día (11:00 y 23:00).
+
+Esta automatización garantiza que el dataset se mantenga actualizado sin intervención manual, mejorando la trazabilidad y la calidad del proyecto.
