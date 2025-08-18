@@ -6,12 +6,17 @@ Este proyecto busca desarrollar un modelo robusto para detectar phishing en URLs
 
 ## Estructura del proyecto
 
-- `/data`: Almacena los datos originales (`raw`) y procesados (`processed`). Todos los feeds de phishing (URLhaus, OpenPhish, PhishTank) se recogen, documentan y guardan de forma individual para asegurar trazabilidad y control de calidad.
-- `/notebooks`: Análisis, limpieza y modelado.
-- `/models`: Modelos entrenados y scripts de inferencia.
-- `/scripts`: Automatizaciones para descarga, limpieza y organización de datos.
-- `/docs`: Documentación por sectores y fuentes.
-- `README.md`: Guía general del proyecto.
+- data/
+    - raw/
+        - legitimas/<sector>/*.csv # fuentes crudas legítimas por sector
+        - phishing/<fuente>/*.csv # fuentes crudas de feeds phishing
+    - processed/
+- notebooks/limpieza/legitimas/.ipynb # plantilla + notebooks por sector
+- scripts/.py # utilidades y runners
+- results/* # informes/figuras/métricas (no datasets)
+- models/* # checkpoints/modelos
+docs/daily_log.md # log de ejecuciones
+
 
 ## Recolección y gestión de datos de phishing
 

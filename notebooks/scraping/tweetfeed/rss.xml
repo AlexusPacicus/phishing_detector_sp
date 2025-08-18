@@ -1,0 +1,1050 @@
+<?xml version="1.0" ?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+   <channel>
+      <title>TweetFeed RSS</title>
+      <link>https://tweetfeed.live</link>
+      <description>TweetFeed collects Indicators of Compromise (IOCs) shared by the infosec community at Twitter.</description>
+      <image>
+         <url>https://tweetfeed.live/img/TweetFeed_card.png</url>
+         <title>TweetFeed RSS</title>
+         <link>https://tweetfeed.live</link>
+      </image>
+      <atom:link href="https://raw.githubusercontent.com/0xDanielLopez/TweetFeed/master/rss.xml" rel="self" type="application/rss+xml"/>
+      <item>
+         <title>https://ieeeeoreg.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952308580557762966</link>
+         <description>@urldna_bot | url | #scam #phishing</description>
+         <guid>https://ieeeeoreg.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 10:00:12 -0000</pubDate>
+      </item>
+      <item>
+         <title>ieeeeoreg.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952308580557762966</link>
+         <description>@urldna_bot | domain | #scam #phishing</description>
+         <guid isPermaLink="false">ieeeeoreg.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 10:00:12 -0000</pubDate>
+      </item>
+      <item>
+         <title>172.67.145.244</title>
+         <link>https://x.com/Metemcyber/status/1952295814229012860</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">172.67.145.244</guid>
+         <pubDate>Mon, 04 Aug 2025 09:09:28 -0000</pubDate>
+      </item>
+      <item>
+         <title>104.21.87.205</title>
+         <link>https://x.com/Metemcyber/status/1952295814229012860</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">104.21.87.205</guid>
+         <pubDate>Mon, 04 Aug 2025 09:09:28 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://172.67.145.244</title>
+         <link>https://x.com/Metemcyber/status/1952295814229012860</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://172.67.145.244</guid>
+         <pubDate>Mon, 04 Aug 2025 09:09:28 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://104.21.87.205</title>
+         <link>https://x.com/Metemcyber/status/1952295814229012860</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://104.21.87.205</guid>
+         <pubDate>Mon, 04 Aug 2025 09:09:28 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://yodobashi-numer.tostog.cn/login_index/</title>
+         <link>https://x.com/Metemcyber/status/1952295814229012860</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://yodobashi-numer.tostog.cn/login_index/</guid>
+         <pubDate>Mon, 04 Aug 2025 09:09:28 -0000</pubDate>
+      </item>
+      <item>
+         <title>yodobashi-numer.tostog.cn</title>
+         <link>https://x.com/Metemcyber/status/1952295814229012860</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">yodobashi-numer.tostog.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 09:09:28 -0000</pubDate>
+      </item>
+      <item>
+         <title>172.67.205.201</title>
+         <link>https://x.com/Metemcyber/status/1952295644447768999</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">172.67.205.201</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>104.21.61.38</title>
+         <link>https://x.com/Metemcyber/status/1952295644447768999</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">104.21.61.38</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://172.67.205.201</title>
+         <link>https://x.com/Metemcyber/status/1952295644447768999</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://172.67.205.201</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://104.21.61.38</title>
+         <link>https://x.com/Metemcyber/status/1952295644447768999</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://104.21.61.38</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://yodobashi-oculato.xteotw.cn/login_index/</title>
+         <link>https://x.com/Metemcyber/status/1952295644447768999</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://yodobashi-oculato.xteotw.cn/login_index/</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>yodobashi-oculato.xteotw.cn</title>
+         <link>https://x.com/Metemcyber/status/1952295644447768999</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">yodobashi-oculato.xteotw.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://jpmorgan.org.cn</title>
+         <link>https://x.com/c9lab_soc/status/1952295480366649504</link>
+         <description>@c9lab_soc | url | #scam #phishing</description>
+         <guid>http://jpmorgan.org.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:09 -0000</pubDate>
+      </item>
+      <item>
+         <title>jpmorgan.org.cn</title>
+         <link>https://x.com/c9lab_soc/status/1952295480366649504</link>
+         <description>@c9lab_soc | domain | #scam #phishing</description>
+         <guid isPermaLink="false">jpmorgan.org.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:09 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://hsbc-uk.co</title>
+         <link>https://x.com/c9lab_soc/status/1952295480366649504</link>
+         <description>@c9lab_soc | url | #scam #phishing</description>
+         <guid>http://hsbc-uk.co</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:09 -0000</pubDate>
+      </item>
+      <item>
+         <title>hsbc-uk.co</title>
+         <link>https://x.com/c9lab_soc/status/1952295480366649504</link>
+         <description>@c9lab_soc | domain | #scam #phishing</description>
+         <guid isPermaLink="false">hsbc-uk.co</guid>
+         <pubDate>Mon, 04 Aug 2025 09:08:09 -0000</pubDate>
+      </item>
+      <item>
+         <title>172.67.182.4</title>
+         <link>https://x.com/Metemcyber/status/1952295285990015075</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">172.67.182.4</guid>
+         <pubDate>Mon, 04 Aug 2025 09:07:22 -0000</pubDate>
+      </item>
+      <item>
+         <title>104.21.59.175</title>
+         <link>https://x.com/Metemcyber/status/1952295285990015075</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">104.21.59.175</guid>
+         <pubDate>Mon, 04 Aug 2025 09:07:22 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://172.67.182.4</title>
+         <link>https://x.com/Metemcyber/status/1952295285990015075</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://172.67.182.4</guid>
+         <pubDate>Mon, 04 Aug 2025 09:07:22 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://104.21.59.175</title>
+         <link>https://x.com/Metemcyber/status/1952295285990015075</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://104.21.59.175</guid>
+         <pubDate>Mon, 04 Aug 2025 09:07:22 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://yodobashi-citizen.hqoxfc.cn/login_index/</title>
+         <link>https://x.com/Metemcyber/status/1952295285990015075</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://yodobashi-citizen.hqoxfc.cn/login_index/</guid>
+         <pubDate>Mon, 04 Aug 2025 09:07:22 -0000</pubDate>
+      </item>
+      <item>
+         <title>yodobashi-citizen.hqoxfc.cn</title>
+         <link>https://x.com/Metemcyber/status/1952295285990015075</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">yodobashi-citizen.hqoxfc.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 09:07:22 -0000</pubDate>
+      </item>
+      <item>
+         <title>147.185.221.30</title>
+         <link>https://x.com/SarlackLab/status/1952293508099825901</link>
+         <description>@SarlackLab | ip | #C2 #Njrat</description>
+         <guid isPermaLink="false">147.185.221.30</guid>
+         <pubDate>Mon, 04 Aug 2025 09:00:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://30.ip.gl.ply.gg</title>
+         <link>https://x.com/SarlackLab/status/1952293508099825901</link>
+         <description>@SarlackLab | url | #C2 #Njrat</description>
+         <guid>http://30.ip.gl.ply.gg</guid>
+         <pubDate>Mon, 04 Aug 2025 09:00:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>30.ip.gl.ply.gg</title>
+         <link>https://x.com/SarlackLab/status/1952293508099825901</link>
+         <description>@SarlackLab | domain | #C2 #Njrat</description>
+         <guid isPermaLink="false">30.ip.gl.ply.gg</guid>
+         <pubDate>Mon, 04 Aug 2025 09:00:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://147.185.221.30:51522</title>
+         <link>https://x.com/SarlackLab/status/1952293508099825901</link>
+         <description>@SarlackLab | url | #C2 #Njrat</description>
+         <guid>http://147.185.221.30:51522</guid>
+         <pubDate>Mon, 04 Aug 2025 09:00:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>43.167.237.204</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | ip | #phishing</description>
+         <guid isPermaLink="false">43.167.237.204</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://43.167.237.204</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>http://43.167.237.204</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://nunshang.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://nunshang.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>nunshang.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">nunshang.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://fubolai.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://fubolai.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>fubolai.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">fubolai.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://duolalife.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://duolalife.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>duolalife.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287411217822155</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">duolalife.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:36:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://fppzj.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287311930302582</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://fppzj.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>fppzj.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287311930302582</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">fppzj.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://hbzhigu.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287311930302582</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://hbzhigu.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>hbzhigu.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287311930302582</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">hbzhigu.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://hackwps.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287311930302582</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://hackwps.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>hackwps.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287311930302582</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">hackwps.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://xvelc.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://xvelc.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>xvelc.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">xvelc.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://zangpiao.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://zangpiao.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>zangpiao.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">zangpiao.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://fggbutf.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://fggbutf.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>fggbutf.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">fggbutf.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://lihuawang.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://lihuawang.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>lihuawang.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287215804948586</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">lihuawang.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:35:18 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://dmnopq.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://dmnopq.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>dmnopq.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">dmnopq.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://vrblv.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://vrblv.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>vrblv.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">vrblv.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://laiyeling.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://laiyeling.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>laiyeling.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">laiyeling.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://geagent.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://geagent.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>geagent.cn</title>
+         <link>https://x.com/Metemcyber/status/1952287117432013170</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">geagent.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:55 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://hmdpqhf.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://hmdpqhf.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>hmdpqhf.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">hmdpqhf.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://klkpobh.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://klkpobh.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>klkpobh.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">klkpobh.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://erqhism.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://erqhism.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>erqhism.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">erqhism.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://knewlog.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://knewlog.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>knewlog.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286989224690023</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">knewlog.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:34:24 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://fananba.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://fananba.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>fananba.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">fananba.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://liuzhikun.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://liuzhikun.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>liuzhikun.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">liuzhikun.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://viwcr.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://viwcr.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>viwcr.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">viwcr.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://pqrsxyz.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | url | #phishing</description>
+         <guid>https://pqrsxyz.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>pqrsxyz.cn</title>
+         <link>https://x.com/Metemcyber/status/1952286839156707801</link>
+         <description>@Metemcyber | domain | #phishing</description>
+         <guid isPermaLink="false">pqrsxyz.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 08:33:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://thomasc0ncrete.com</title>
+         <link>https://x.com/solidnames/status/1952284929875972190</link>
+         <description>@solidnames | url | #phishing</description>
+         <guid>http://thomasc0ncrete.com</guid>
+         <pubDate>Mon, 04 Aug 2025 08:26:13 -0000</pubDate>
+      </item>
+      <item>
+         <title>thomasc0ncrete.com</title>
+         <link>https://x.com/solidnames/status/1952284929875972190</link>
+         <description>@solidnames | domain | #phishing</description>
+         <guid isPermaLink="false">thomasc0ncrete.com</guid>
+         <pubDate>Mon, 04 Aug 2025 08:26:13 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://turbo-mines.pro/withdrawal</title>
+         <link>https://x.com/urldna_bot/status/1952278363629932592</link>
+         <description>@urldna_bot | url | #phishing #scam</description>
+         <guid>https://turbo-mines.pro/withdrawal</guid>
+         <pubDate>Mon, 04 Aug 2025 08:00:08 -0000</pubDate>
+      </item>
+      <item>
+         <title>turbo-mines.pro</title>
+         <link>https://x.com/urldna_bot/status/1952278363629932592</link>
+         <description>@urldna_bot | domain | #phishing #scam</description>
+         <guid isPermaLink="false">turbo-mines.pro</guid>
+         <pubDate>Mon, 04 Aug 2025 08:00:08 -0000</pubDate>
+      </item>
+      <item>
+         <title>eba2a543352ab5333a0aa369834278c8</title>
+         <link>https://x.com/suyog41/status/1952266082162778500</link>
+         <description>@suyog41 | md5 | #ransomware</description>
+         <guid isPermaLink="false">eba2a543352ab5333a0aa369834278c8</guid>
+         <pubDate>Mon, 04 Aug 2025 07:11:19 -0000</pubDate>
+      </item>
+      <item>
+         <title>ww2-mi-connecto-app.somzenazazrakov.com</title>
+         <link>https://x.com/JAMESWT_WT/status/1952263030152048824</link>
+         <description>@JAMESWT_WT | domain | #phishing</description>
+         <guid isPermaLink="false">ww2-mi-connecto-app.somzenazazrakov.com</guid>
+         <pubDate>Mon, 04 Aug 2025 06:59:12 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://ww2-mi-connecto-app.somzenazazrakov.com</title>
+         <link>https://x.com/JAMESWT_WT/status/1952263030152048824</link>
+         <description>@JAMESWT_WT | url | #phishing</description>
+         <guid>https://ww2-mi-connecto-app.somzenazazrakov.com</guid>
+         <pubDate>Mon, 04 Aug 2025 06:59:12 -0000</pubDate>
+      </item>
+      <item>
+         <title>75f51daff0696bb59f14a9b3f12d3578</title>
+         <link>https://x.com/suyog41/status/1952260988826456261</link>
+         <description>@suyog41 | md5 | #stealer</description>
+         <guid isPermaLink="false">75f51daff0696bb59f14a9b3f12d3578</guid>
+         <pubDate>Mon, 04 Aug 2025 06:51:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>dc85c90e73911a57ff2e3862fb30e0b0</title>
+         <link>https://x.com/suyog41/status/1952260988826456261</link>
+         <description>@suyog41 | md5 | #stealer</description>
+         <guid isPermaLink="false">dc85c90e73911a57ff2e3862fb30e0b0</guid>
+         <pubDate>Mon, 04 Aug 2025 06:51:05 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://mail-modp-gov-pk-view.netlify.app/error.html</title>
+         <link>https://x.com/ShadowChasing1/status/1952258687785181590</link>
+         <description>@ShadowChasing1 | url | #APT</description>
+         <guid>https://mail-modp-gov-pk-view.netlify.app/error.html</guid>
+         <pubDate>Mon, 04 Aug 2025 06:41:57 -0000</pubDate>
+      </item>
+      <item>
+         <title>mail-modp-gov-pk-view.netlify.app</title>
+         <link>https://x.com/ShadowChasing1/status/1952258687785181590</link>
+         <description>@ShadowChasing1 | domain | #APT</description>
+         <guid isPermaLink="false">mail-modp-gov-pk-view.netlify.app</guid>
+         <pubDate>Mon, 04 Aug 2025 06:41:57 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://mail-baf-mil-bd-account-data-files-document.pages.dev</title>
+         <link>https://x.com/ShadowChasing1/status/1952258650325795077</link>
+         <description>@ShadowChasing1 | url | #APT</description>
+         <guid>https://mail-baf-mil-bd-account-data-files-document.pages.dev</guid>
+         <pubDate>Mon, 04 Aug 2025 06:41:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>mail-baf-mil-bd-account-data-files-document.pages.dev</title>
+         <link>https://x.com/ShadowChasing1/status/1952258650325795077</link>
+         <description>@ShadowChasing1 | domain | #APT</description>
+         <guid isPermaLink="false">mail-baf-mil-bd-account-data-files-document.pages.dev</guid>
+         <pubDate>Mon, 04 Aug 2025 06:41:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://daily.alltop.asia/blog/article/del2.php</title>
+         <link>https://x.com/ShadowChasing1/status/1952257858948804856</link>
+         <description>@ShadowChasing1 | url | #APT</description>
+         <guid>http://daily.alltop.asia/blog/article/del2.php</guid>
+         <pubDate>Mon, 04 Aug 2025 06:38:39 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://daily.alltop.asia/blog/article/d2.php</title>
+         <link>https://x.com/ShadowChasing1/status/1952257858948804856</link>
+         <description>@ShadowChasing1 | url | #APT</description>
+         <guid>http://daily.alltop.asia/blog/article/d2.php</guid>
+         <pubDate>Mon, 04 Aug 2025 06:38:39 -0000</pubDate>
+      </item>
+      <item>
+         <title>daily.alltop.asia</title>
+         <link>https://x.com/ShadowChasing1/status/1952257858948804856</link>
+         <description>@ShadowChasing1 | domain | #APT</description>
+         <guid isPermaLink="false">daily.alltop.asia</guid>
+         <pubDate>Mon, 04 Aug 2025 06:38:39 -0000</pubDate>
+      </item>
+      <item>
+         <title>d8d86b15e68889bf76b3cf8e335f43afe0287b9b20aeb18b136b90a516695989</title>
+         <link>https://x.com/ShadowChasing1/status/1952257858948804856</link>
+         <description>@ShadowChasing1 | sha256 | #APT</description>
+         <guid isPermaLink="false">d8d86b15e68889bf76b3cf8e335f43afe0287b9b20aeb18b136b90a516695989</guid>
+         <pubDate>Mon, 04 Aug 2025 06:38:39 -0000</pubDate>
+      </item>
+      <item>
+         <title>6221B0BF4D365454D40C546CF7133570</title>
+         <link>https://x.com/fbgwls245/status/1952248934086451468</link>
+         <description>@fbgwls245 | md5 | #ransomware</description>
+         <guid isPermaLink="false">6221B0BF4D365454D40C546CF7133570</guid>
+         <pubDate>Mon, 04 Aug 2025 06:03:11 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://zimbrafixit.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952248163680608599</link>
+         <description>@urldna_bot | url | #scam #phishing</description>
+         <guid>https://zimbrafixit.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 06:00:07 -0000</pubDate>
+      </item>
+      <item>
+         <title>zimbrafixit.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952248163680608599</link>
+         <description>@urldna_bot | domain | #scam #phishing</description>
+         <guid isPermaLink="false">zimbrafixit.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 06:00:07 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://icloud-putage.jnbkw.cn/gvIY2S/</title>
+         <link>https://x.com/catnap707/status/1952241478954328575</link>
+         <description>@catnap707 | url | #phishing</description>
+         <guid>http://icloud-putage.jnbkw.cn/gvIY2S/</guid>
+         <pubDate>Mon, 04 Aug 2025 05:33:34 -0000</pubDate>
+      </item>
+      <item>
+         <title>icloud-putage.jnbkw.cn</title>
+         <link>https://x.com/catnap707/status/1952241478954328575</link>
+         <description>@catnap707 | domain | #phishing</description>
+         <guid isPermaLink="false">icloud-putage.jnbkw.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 05:33:34 -0000</pubDate>
+      </item>
+      <item>
+         <title>104.21.34.222</title>
+         <link>https://x.com/catnap707/status/1952241478954328575</link>
+         <description>@catnap707 | ip | #phishing</description>
+         <guid isPermaLink="false">104.21.34.222</guid>
+         <pubDate>Mon, 04 Aug 2025 05:33:34 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://172.67.165.235</title>
+         <link>https://x.com/catnap707/status/1952241478954328575</link>
+         <description>@catnap707 | url | #phishing</description>
+         <guid>http://172.67.165.235</guid>
+         <pubDate>Mon, 04 Aug 2025 05:33:34 -0000</pubDate>
+      </item>
+      <item>
+         <title>172.67.165.235</title>
+         <link>https://x.com/catnap707/status/1952241478954328575</link>
+         <description>@catnap707 | ip | #phishing</description>
+         <guid isPermaLink="false">172.67.165.235</guid>
+         <pubDate>Mon, 04 Aug 2025 05:33:34 -0000</pubDate>
+      </item>
+      <item>
+         <title>104.21.95.192</title>
+         <link>https://x.com/catnap707/status/1952239947995554084</link>
+         <description>@catnap707 | ip | #phishing</description>
+         <guid isPermaLink="false">104.21.95.192</guid>
+         <pubDate>Mon, 04 Aug 2025 05:27:29 -0000</pubDate>
+      </item>
+      <item>
+         <title>172.67.147.44</title>
+         <link>https://x.com/catnap707/status/1952239947995554084</link>
+         <description>@catnap707 | ip | #phishing</description>
+         <guid isPermaLink="false">172.67.147.44</guid>
+         <pubDate>Mon, 04 Aug 2025 05:27:29 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://104.21.95.192</title>
+         <link>https://x.com/catnap707/status/1952239947995554084</link>
+         <description>@catnap707 | url | #phishing</description>
+         <guid>http://104.21.95.192</guid>
+         <pubDate>Mon, 04 Aug 2025 05:27:29 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://trip-plains.shjkahdjah.cn/customer/announcement/</title>
+         <link>https://x.com/catnap707/status/1952239947995554084</link>
+         <description>@catnap707 | url | #phishing</description>
+         <guid>http://trip-plains.shjkahdjah.cn/customer/announcement/</guid>
+         <pubDate>Mon, 04 Aug 2025 05:27:29 -0000</pubDate>
+      </item>
+      <item>
+         <title>trip-plains.shjkahdjah.cn</title>
+         <link>https://x.com/catnap707/status/1952239947995554084</link>
+         <description>@catnap707 | domain | #phishing</description>
+         <guid isPermaLink="false">trip-plains.shjkahdjah.cn</guid>
+         <pubDate>Mon, 04 Aug 2025 05:27:29 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://fillettx.xin/otiq</title>
+         <link>https://x.com/K_N1kolenko/status/1952239821210165479</link>
+         <description>@K_N1kolenko | url | #LummaStealer</description>
+         <guid>http://fillettx.xin/otiq</guid>
+         <pubDate>Mon, 04 Aug 2025 05:26:58 -0000</pubDate>
+      </item>
+      <item>
+         <title>fillettx.xin</title>
+         <link>https://x.com/K_N1kolenko/status/1952239821210165479</link>
+         <description>@K_N1kolenko | domain | #LummaStealer</description>
+         <guid isPermaLink="false">fillettx.xin</guid>
+         <pubDate>Mon, 04 Aug 2025 05:26:58 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://t.me/sadfgsdfgdfg124</title>
+         <link>https://x.com/K_N1kolenko/status/1952239821210165479</link>
+         <description>@K_N1kolenko | url | #LummaStealer</description>
+         <guid>http://t.me/sadfgsdfgdfg124</guid>
+         <pubDate>Mon, 04 Aug 2025 05:26:58 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://italocovas.github.io/instagram-ui-clone/index.html</title>
+         <link>https://x.com/urldna_bot/status/1952217963370516808</link>
+         <description>@urldna_bot | url | #scam #phishing</description>
+         <guid>https://italocovas.github.io/instagram-ui-clone/index.html</guid>
+         <pubDate>Mon, 04 Aug 2025 04:00:07 -0000</pubDate>
+      </item>
+      <item>
+         <title>italocovas.github.io</title>
+         <link>https://x.com/urldna_bot/status/1952217963370516808</link>
+         <description>@urldna_bot | domain | #scam #phishing</description>
+         <guid isPermaLink="false">italocovas.github.io</guid>
+         <pubDate>Mon, 04 Aug 2025 04:00:07 -0000</pubDate>
+      </item>
+      <item>
+         <title>inbox-mixer-mysql-gmbh.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | domain | #opendir</description>
+         <guid isPermaLink="false">inbox-mixer-mysql-gmbh.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://inbox-mixer-mysql-gmbh.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | url | #opendir</description>
+         <guid>http://inbox-mixer-mysql-gmbh.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>architects-mins-emails-dimensions.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | domain | #opendir</description>
+         <guid isPermaLink="false">architects-mins-emails-dimensions.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://architects-mins-emails-dimensions.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | url | #opendir</description>
+         <guid>http://architects-mins-emails-dimensions.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>define-clusters-american-counters.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | domain | #opendir</description>
+         <guid isPermaLink="false">define-clusters-american-counters.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>rush-poetry-stations-disciplinary.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | domain | #opendir</description>
+         <guid isPermaLink="false">rush-poetry-stations-disciplinary.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://rush-poetry-stations-disciplinary.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | url | #opendir</description>
+         <guid>http://rush-poetry-stations-disciplinary.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://define-clusters-american-counters.trycloudflare.com</title>
+         <link>https://x.com/momomopas/status/1952210385504719274</link>
+         <description>@momomopas | url | #opendir</description>
+         <guid>http://define-clusters-american-counters.trycloudflare.com</guid>
+         <pubDate>Mon, 04 Aug 2025 03:30:00 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://sarerererer.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952187764314628313</link>
+         <description>@urldna_bot | url | #phishing #scam</description>
+         <guid>https://sarerererer.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 02:00:07 -0000</pubDate>
+      </item>
+      <item>
+         <title>sarerererer.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952187764314628313</link>
+         <description>@urldna_bot | domain | #phishing #scam</description>
+         <guid isPermaLink="false">sarerererer.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 02:00:07 -0000</pubDate>
+      </item>
+      <item>
+         <title>6573136f9b804ddc637f6be3a4536ed0013da7a5592b2f3a3cd37c0c71926365</title>
+         <link>https://x.com/G60930953/status/1952175678243397889</link>
+         <description>@G60930953 | sha256 | #CobaltStrike</description>
+         <guid isPermaLink="false">6573136f9b804ddc637f6be3a4536ed0013da7a5592b2f3a3cd37c0c71926365</guid>
+         <pubDate>Mon, 04 Aug 2025 01:12:06 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://m.123huodong.com.cloud.cdntip.com.s2-web.dogedns.com</title>
+         <link>https://x.com/G60930953/status/1952175678243397889</link>
+         <description>@G60930953 | url | #CobaltStrike</description>
+         <guid>http://m.123huodong.com.cloud.cdntip.com.s2-web.dogedns.com</guid>
+         <pubDate>Mon, 04 Aug 2025 01:12:06 -0000</pubDate>
+      </item>
+      <item>
+         <title>m.123huodong.com.cloud.cdntip.com.s2-web.dogedns.com</title>
+         <link>https://x.com/G60930953/status/1952175678243397889</link>
+         <description>@G60930953 | domain | #CobaltStrike</description>
+         <guid isPermaLink="false">m.123huodong.com.cloud.cdntip.com.s2-web.dogedns.com</guid>
+         <pubDate>Mon, 04 Aug 2025 01:12:06 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://ethfarm.live</title>
+         <link>https://x.com/Gabby_Recvry/status/1952169817231994913</link>
+         <description>@Gabby_Recvry | url | #scam</description>
+         <guid>http://ethfarm.live</guid>
+         <pubDate>Mon, 04 Aug 2025 00:48:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>ethfarm.live</title>
+         <link>https://x.com/Gabby_Recvry/status/1952169817231994913</link>
+         <description>@Gabby_Recvry | domain | #scam</description>
+         <guid isPermaLink="false">ethfarm.live</guid>
+         <pubDate>Mon, 04 Aug 2025 00:48:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>Hireinfluence.it</title>
+         <link>https://x.com/Gabby_Recvry/status/1952169817231994913</link>
+         <description>@Gabby_Recvry | domain | #scam</description>
+         <guid isPermaLink="false">Hireinfluence.it</guid>
+         <pubDate>Mon, 04 Aug 2025 00:48:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://Hireinfluence.it</title>
+         <link>https://x.com/Gabby_Recvry/status/1952169817231994913</link>
+         <description>@Gabby_Recvry | url | #scam</description>
+         <guid>http://Hireinfluence.it</guid>
+         <pubDate>Mon, 04 Aug 2025 00:48:48 -0000</pubDate>
+      </item>
+      <item>
+         <title>203.245.0.121</title>
+         <link>https://x.com/skocherhan/status/1952158753240793190</link>
+         <description>@skocherhan | ip | #Kimsuky</description>
+         <guid isPermaLink="false">203.245.0.121</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:50 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://203.245.0.121</title>
+         <link>https://x.com/skocherhan/status/1952158753240793190</link>
+         <description>@skocherhan | url | #Kimsuky</description>
+         <guid>http://203.245.0.121</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:50 -0000</pubDate>
+      </item>
+      <item>
+         <title>bytes.press</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">bytes.press</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>031233414.xyz</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">031233414.xyz</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.031233414.xyz</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.031233414.xyz</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>99fxz.net</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">99fxz.net</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.99fxz.net</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.99fxz.net</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>bionanosurf.info</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">bionanosurf.info</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.bionanosurf.info</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.bionanosurf.info</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>borneolab.net</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">borneolab.net</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.borneolab.net</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.borneolab.net</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.earnshill.com</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.earnshill.com</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.bytes.press</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.bytes.press</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>dietproio.info</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">dietproio.info</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.dietproio.info</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.dietproio.info</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>drgnmoney-98.buzz</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">drgnmoney-98.buzz</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>http://www.drgnmoney-98.buzz</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | url | #Formbook</description>
+         <guid>http://www.drgnmoney-98.buzz</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>earnshill.com</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | domain | #Formbook</description>
+         <guid isPermaLink="false">earnshill.com</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>d8e0597482281218846e38360bf6fa04</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | md5 | #Formbook</description>
+         <guid isPermaLink="false">d8e0597482281218846e38360bf6fa04</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>7d7e3acbeb93396c76ebdbb4785682ef</title>
+         <link>https://x.com/skocherhan/status/1952158714066047220</link>
+         <description>@skocherhan | md5 | #Formbook</description>
+         <guid isPermaLink="false">7d7e3acbeb93396c76ebdbb4785682ef</guid>
+         <pubDate>Mon, 04 Aug 2025 00:04:41 -0000</pubDate>
+      </item>
+      <item>
+         <title>https://ebawightmancoded.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952157570661073368</link>
+         <description>@urldna_bot | url | #phishing #scam</description>
+         <guid>https://ebawightmancoded.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 00:00:08 -0000</pubDate>
+      </item>
+      <item>
+         <title>ebawightmancoded.weebly.com</title>
+         <link>https://x.com/urldna_bot/status/1952157570661073368</link>
+         <description>@urldna_bot | domain | #phishing #scam</description>
+         <guid isPermaLink="false">ebawightmancoded.weebly.com</guid>
+         <pubDate>Mon, 04 Aug 2025 00:00:08 -0000</pubDate>
+      </item>
+   </channel>
+</rss>
