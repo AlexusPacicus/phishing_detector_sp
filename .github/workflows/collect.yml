@@ -1,0 +1,40 @@
+name: Collect phishing feeds
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 05:00 UTC ≈ 07:00 Europe/Madrid
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  openphish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt || pip install pandas requests validators python-dateutil
+
+      - name: Collect OpenPhish
+        run: |
+          python scripts/automatizacion_openphish.py \
+            --outdir data/raw/phishing/openphish \
+            --date $(date -u +%F)
+
+      - name: Commit data
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add -A
+          git commit -m "ci: openphish $(date -u +%F)" || echo "No changes"
+          git push
