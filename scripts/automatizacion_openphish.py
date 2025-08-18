@@ -19,6 +19,8 @@ import os                                    # Para gestión de rutas y carpetas
 import logging                               # Para registrar logs de ejecución y errores
 import time                                  # Para retardos entre reintentos
 from logging.handlers import RotatingFileHandler # Para logs rotativos por tamaño
+import argparse
+from pathlib import Path
 
 # --- Configuración de rutas y logging ---
 
@@ -92,30 +94,53 @@ def procesar_datos(contenido):
     df['fecha_hora_recoleccion'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Timestamp de la recolección
     return df
 
-def guardar_datos(df):
+def guardar_datos(df, outdir, date_str):
     """
-    Guarda el DataFrame limpio como CSV con nombre único por timestamp.
+    Guarda el DataFrame limpio como CSV determinista: <outdir>/<YYYY-MM-DD>.csv
+    Si ya existe, concatena y deduplica por 'url'.
     """
     if df.empty:
-        logger.warning(f"[{SOURCE}] El DataFrame está vacío. No se guardará archivo.")  # No guarda si no hay datos
+        logger.warning(f"[{SOURCE}] El DataFrame está vacío. No se guardará archivo.")
         return
-    fecha_hora = datetime.now().strftime("%Y%m%d_%H%M%S")           # Timestamp para nombre único
-    nombre_archivo = f'{SOURCE.lower()}_online_{fecha_hora}.csv'    # Nombre del archivo (por fuente y fecha)
-    ruta_archivo = os.path.join(DATA_DIR, nombre_archivo)           # Ruta final
-    df.to_csv(ruta_archivo, index=False)                            # Guarda el DataFrame en CSV, sin índice extra
-    logger.info(f"[{SOURCE}] Guardados {len(df)} registros en {ruta_archivo}.")
+
+    outdir = Path(outdir)
+    outdir.mkdir(parents=True, exist_ok=True)
+    out = outdir / f"{date_str}.csv"
+
+    if out.exists():
+        try:
+            prev = pd.read_csv(out)
+            df = pd.concat([prev, df], ignore_index=True)
+            df = df.drop_duplicates(subset="url")
+            logger.info(f"[{SOURCE}] Merge con existente: {len(prev)} + {len(df)} (tras dedupe).")
+        except Exception as e:
+            logger.warning(f"[{SOURCE}] No se pudo leer {out} ({e}). Sobrescribiendo con el nuevo DF.")
+
+    df.to_csv(out, index=False)
+    logger.info(f"[{SOURCE}] Guardados {len(df)} registros en {out}.")
+
+
 
 # --- Bloque principal: solo ejecuta si es el script principal ---
 
 if __name__ == "__main__":
-    contenido = obtener_datos_feed()                           # Descarga el feed (con reintentos y logs)
-    if contenido:
-        try:
-            df = procesar_datos(contenido)                    # Procesa y limpia los datos recibidos
-            guardar_datos(df)                                 # Guarda el DataFrame como CSV
-            print(f"[INFO] Guardados {len(df)} registros procesados en {DATA_DIR}")
-        except Exception as e:
-            logger.error(f"[{SOURCE}] Error procesando datos: {e}")
-            print(f"[ERROR] No se pudieron procesar los datos. Revisa el log.")
-    else:
-        print(f"[WARNING] No se pudo descargar el feed de {SOURCE}. Ver logs para más información.")
+    # CLI: --outdir y --date
+    ap = argparse.ArgumentParser(description="Recolector OpenPhish (CSV diario por fecha)")
+    ap.add_argument("--outdir", required=True, help="Carpeta destino (e.g., data/raw/phishing/openphish)")
+    ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+                    help="Fecha YYYY-MM-DD (UTC). Por defecto, hoy (UTC).")
+    args = ap.parse_args()
+
+    contenido = obtener_datos_feed()
+    if not contenido:
+        print(f"[WARNING] No se pudo descargar el feed de {SOURCE}. Ver logs.")
+        raise SystemExit(1)
+
+    try:
+        df = procesar_datos(contenido)
+        guardar_datos(df, outdir=args.outdir, date_str=args.date)
+        print(f"[INFO] Guardados {len(df)} registros en {args.outdir}/{args.date}.csv")
+    except Exception as e:
+        logger.error(f"[{SOURCE}] Error procesando datos: {e}")
+        print("[ERROR] Fallo en el procesamiento. Revisa el log.")
+        raise

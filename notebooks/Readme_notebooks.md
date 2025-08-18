@@ -1,6 +1,6 @@
 # Notebooks
 
-Esta carpeta contiene los notebooks usados en el desarrollo del proyecto de detección de phishing en diferentes sectores (banca, SaaS/cloud/correo).
+Esta carpeta contiene los notebooks usados en el desarrollo del proyecto de detección de phishing en diferentes sectores 
 
 - `phishing_detector.ipynb`: Notebook principal, incluye el pipeline completo de análisis y modelado.
 - `filtrado_empresas_es.ipynb`: Descarga y filtrado de URLs de empresas españolas.

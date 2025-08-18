@@ -39,3 +39,7 @@ venv/
 
 
 
+data/interim/
+*.parquet
+data/interim/
+*.parquet
