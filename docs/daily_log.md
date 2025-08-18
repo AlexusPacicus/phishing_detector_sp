@@ -2,14 +2,3 @@
 2025-08-18 | limpieza_legitimas_cripto | crudo=209 | limpio=205 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/cripto/legitimas_cripto_limpio.csv
 2025-08-18 | limpieza_legitimas_ecommerce | crudo=934 | limpio=929 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/ecommerce/legitimas_ecommerce_limpio.csv
 2025-08-18 | limpieza_legitimas_energia | crudo=830 | limpio=817 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/energia/legitimas_energia_limpio.csv
-2025-08-18 | limpieza_legitimas_banca | crudo=1129 | limpio=1111 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/banca/legitimas_banca_limpio.csv
-2025-08-18 | limpieza_legitimas_cripto | crudo=207 | limpio=205 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/cripto/legitimas_cripto_limpio.csv
-2025-08-18 | limpieza_legitimas_ecommerce | crudo=934 | limpio=929 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/ecommerce/legitimas_ecommerce_limpio.csv
-2025-08-18 | limpieza_legitimas_energia | crudo=829 | limpio=817 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/energia/legitimas_energia_limpio.csv
-2025-08-18 | limpieza_legitimas_logistica | crudo=0 | limpio=365 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/logistica/legitimas_logistica_limpio.csv
-2025-08-18 | limpieza_legitimas_publico | crudo=0 | limpio=647 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/publico/legitimas_publico_limpio.csv
-2025-08-18 | limpieza_legitimas_rrss | crudo=0 | limpio=178 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/rrss/legitimas_rrss_limpio.csv
-2025-08-18 | limpieza_legitimas_saas | crudo=0 | limpio=72 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/saas/legitimas_saas_limpio.csv
-2025-08-18 | limpieza_legitimas_streaming | crudo=0 | limpio=494 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/streaming/legitimas_streaming_limpio.csv
-2025-08-18 | limpieza_legitimas_teleco | crudo=0 | limpio=430 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/teleco/legitimas_teleco_limpio.csv
-2025-08-18 | limpieza_legitimas_viajes | crudo=0 | limpio=560 | out=/Users/test/Desktop/phishing-detector/data/processed/legitimas/viajes/legitimas_viajes_limpio.csv
