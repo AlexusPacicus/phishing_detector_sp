@@ -31,6 +31,14 @@ jobs:
             --outdir data/raw/phishing/openphish \
             --date $(date -u +%F)
 
+      - name: Upload CSV as artifact (no Git)
+        uses: actions/upload-artifact@v4
+        with:
+          name: openphish-$(date -u +%F)
+          path: data/raw/phishing/openphish/$(date -u +%F).csv
+          retention-days: 30
+
+
       - name: Commit data
         run: |
           git config user.name "${{ github.actor }}"
