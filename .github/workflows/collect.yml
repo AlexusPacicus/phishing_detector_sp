@@ -1,3 +1,9 @@
+
+git switch ci/fix-date-output
+git rev-parse --show-toplevel && pwd
+
+mkdir -p .github/workflows
+cat > .github/workflows/collect.yml <<'YAML'
 name: Collect phishing feeds
 
 on:
@@ -6,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: collect
@@ -25,16 +31,30 @@ jobs:
         run: |
           pip install -r requirements.txt || pip install pandas requests validators python-dateutil
 
+      - name: Set date
+        id: date
+        run: echo "today=$(date -u +%F)" >> $GITHUB_OUTPUT
+
       - name: Collect OpenPhish
+        env:
+          DATE: ${{ steps.date.outputs.today }}
         run: |
           python scripts/automatizacion_openphish.py \
             --outdir data/raw/phishing/openphish \
-            --date $(date -u +%F)
+            --date "$DATE"
 
-      - name: Commit data
+      - name: Assert CSV exists
+        env:
+          DATE: ${{ steps.date.outputs.today }}
         run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git add -A
-          git commit -m "ci: openphish $(date -u +%F)" || echo "No changes"
-          git push
+          F="data/raw/phishing/openphish/$DATE.csv"
+          echo "Esperando $F"
+          [ -s "$F" ] || (echo "ERROR: $F no existe o está vacío" && exit 1)
+          head -3 "$F" || true
+
+      - name: Upload CSV as artifact (no Git)
+        uses: actions/upload-artifact@v4
+        with:
+          name: openphish-${{ steps.date.outputs.today }}
+          path: data/raw/phishing/openphish/${{ steps.date.outputs.today }}.csv
+          retention-days: 30
