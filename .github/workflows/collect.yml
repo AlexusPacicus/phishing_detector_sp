@@ -39,10 +39,4 @@ jobs:
           retention-days: 30
 
 
-      - name: Commit data
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git add -A
-          git commit -m "ci: openphish $(date -u +%F)" || echo "No changes"
-          git push
+     
