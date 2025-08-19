@@ -1,17 +1,3 @@
-name: Collect phishing feeds
-
-on:
-  schedule:
-    - cron: "0 5 * * *"   # 05:00 UTC ≈ 07:00 Europe/Madrid
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-concurrency:
-  group: collect
-  cancel-in-progress: false
-
 jobs:
   openphish:
     runs-on: ubuntu-latest
@@ -25,18 +11,34 @@ jobs:
         run: |
           pip install -r requirements.txt || pip install pandas requests validators python-dateutil
 
+      # 1) Calcular la fecha una sola vez y exponerla como output
+      - name: Set date
+        id: date
+        run: echo "today=$(date -u +%F)" >> $GITHUB_OUTPUT
+
+      # 2) Usar SIEMPRE esa misma fecha en el script
       - name: Collect OpenPhish
+        env:
+          DATE: ${{ steps.date.outputs.today }}
         run: |
           python scripts/automatizacion_openphish.py \
             --outdir data/raw/phishing/openphish \
-            --date $(date -u +%F)
+            --date "$DATE"
 
+      # (opcional, pero recomendable) Asegurar que el CSV existe
+      - name: Assert CSV exists
+        env:
+          DATE: ${{ steps.date.outputs.today }}
+        run: |
+          F="data/raw/phishing/openphish/$DATE.csv"
+          echo "Esperando $F"
+          [ -s "$F" ] || (echo "ERROR: $F no existe o está vacío" && exit 1)
+          head -3 "$F" || true
+
+      # 3) Subir artifact usando el mismo output (aquí NO hay shell)
       - name: Upload CSV as artifact (no Git)
         uses: actions/upload-artifact@v4
         with:
-          name: openphish-$(date -u +%F)
-          path: data/raw/phishing/openphish/$(date -u +%F).csv
+          name: openphish-${{ steps.date.outputs.today }}
+          path: data/raw/phishing/openphish/${{ steps.date.outputs.today }}.csv
           retention-days: 30
-
-
-     
