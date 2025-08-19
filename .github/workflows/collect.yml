@@ -1,9 +1,3 @@
-
-git switch ci/fix-date-output
-git rev-parse --show-toplevel && pwd
-
-mkdir -p .github/workflows
-cat > .github/workflows/collect.yml <<'YAML'
 name: Collect phishing feeds
 
 on:
