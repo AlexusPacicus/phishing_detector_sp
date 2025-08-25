@@ -1,32 +1,16 @@
-/TweetFeed/
-/notebooks/TweetFeed/
-
-data/raw/phishtank_urls.csv
+# Ignorar datos crudos y procesados
 data/raw/
-# Byte-compiled / optimized / DLL files
+data/clean/
+
+# Cachés de Python y checkpoints de notebooks
 __pycache__/
-*.py[cod]
-*$py.class
-# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-# VSCode settings
+
+# Archivos de configuración de IDEs
 .vscode/
-# PyCharm settings
 .idea/
-# macOS system files
+
+# Archivos del sistema
 .DS_Store
-# Windows system files
 Thumbs.db
-# Data folders (evitar subir datasets pesados)
-data/processed/
-# CSV grandes
-*.csv
-# Entornos virtuales
-venv/
-.env/
-# Logs and reports
-*.log
-data/interim/
-*.parquet
-data/interim/
-*.parquet
+
