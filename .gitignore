@@ -28,3 +28,19 @@ venv/
 *.log
 data/interim/
 *.parquet
+# ---- data policy ----
+/data/raw/**
+/data/interim/**
+/data/processed/**
+
+# allow canonical datasets
+!data/clean/**
+!data/final/**
+# ---- data policy ----
+/data/raw/**
+/data/interim/**
+/data/processed/**
+
+# allow canonical datasets
+!data/clean/**
+!data/final/**
