@@ -1,0 +1,56 @@
+url,matched_target,fecha_hora_recoleccion,fuente,categoria,notas
+http://caixacapitalrisc.send2sign.es/login,CaixaBank,2025-07-28 12:05:48,PhishTank,banca,suplantación filial de riesgo de Caixa
+http://cn83141.tw1.ru/DGT,DGT,2025-07-28 12:05:48,PhishTank,publico,"Dominio ruso, pero dirigido a la DGT"
+http://f1150151.xsph.ru/Orange/login.php,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,"hosting .ru, phishing contra orange, podria ser fr o sp"
+https://authspacemon.webcindario.com/orangebank/index.php?pwd=TaTe,orange,2025-07-28 12:05:48,PhishTank,banca,"Orange Bank, spuplantación de subruta, alojado en webcindario"
+https://bit.ly/-ICorreos,Correos,2025-07-28 12:05:48,PhishTank,logística,"duplicada, no se añade"
+https://bit.ly/Correos-ESP,Correos,2025-07-28 12:05:48,PhishTank,logística,"phishing con acortador, marca correos"
+https://bit.ly/ICorreosProgramar,Correos,2025-07-28 12:05:48,PhishTank,logística,no se inclute para evitar ruido de duplicados
+https://bit.ly/correos--gocl,Correos,2025-07-28 12:05:48,PhishTank,logística,no se inclute para evitar ruido de duplicados
+https://bit.ly/correos-cl01,Correos,2025-07-28 12:05:48,PhishTank,logística,no se inclute para evitar ruido de duplicados
+https://bit.ly/llCorreos,Correos,2025-07-28 12:05:48,PhishTank,logística,no se inclute para evitar ruido de duplicados
+https://bit.ly/pagos_correos,Correos,2025-07-28 12:05:48,PhishTank,logística,no se inclute para evitar ruido de duplicados
+https://correos-paqueteria.com/,Correos,2025-07-28 12:05:48,PhishTank,logistica,uso directo de marca correos
+https://correosdecr.web.app,Correos,2025-07-28 12:05:48,PhishTank,logistica,"hosting en .we.app, muy típico"
+https://correoses.app.link/dominios,Correos,2025-07-28 12:05:48,PhishTank,logística,uso Branch.io para redirección
+https://extremas.com.ar/styles/ccDGT/DGT/,DGT,2025-07-28 12:05:48,PhishTank,público,"Dominio argentino comprometido, orientado a DGT España"
+https://l.ead.me/BBVA24,bbva,2025-07-28 12:05:48,PhishTank,banca,Url acortada con redirección a phishing de BBVA
+https://l.ead.me/Bbva_login,bbva,2025-07-28 12:05:48,PhishTank,banca,Url acortada con redirección a phishing de BBVA
+https://l.ead.me/correos-web,Correos,2025-07-28 12:05:48,PhishTank,logistica,"url acortada en ead.me, campaña dirigida a Correos"
+https://orangebank.mailerpage.io/,orange,2025-07-28 12:05:48,PhishTank,banca,Puede estar vinculado a campañas en Francia
+https://orangess.contactin.bio/,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,Uso de bio-links
+https://orangeswebsite-d411.uscreen.io/,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,"Saas (uscreen.io), referencia a Orange"
+https://particulares-netbancosantander.firebaseapp.com/,banco santander,2025-07-28 12:05:48,PhishTank,banca,"Hosting Firebase, subdominio fraudulento"
+https://particulares-netbancosantander.web.app/,banco santander,2025-07-28 12:05:48,PhishTank,banca,hosting gratuito (Google Firebase/Web.app
+https://pub-2202f5760eea4f5eba334684a3d617f9.r2.dev/orange.html,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,"r2.dev, almacenamiento de Cloudfare R2, sin marca legítima, orange.html apunta a Orange"
+https://q-r.to/BBVA24,bbva,2025-07-28 12:05:48,PhishTank,banca,oculta el destino real con qr code generator
+https://q-r.to/Bbva_login,bbva,2025-07-28 12:05:48,PhishTank,banca,oculta el destino real con qr code generator
+https://q-r.to/caixabank,caixabank,2025-07-28 12:05:48,PhishTank,banca,oculta el destino real con qr code generator
+https://q-r.to/correos-web,Correos,2025-07-28 12:05:48,PhishTank,logistica,acortador de QR muy usado en enlaces rápidos
+https://qrco.de/BBVA24,bbva,2025-07-28 12:05:48,PhishTank,banca,otro tipo de acortador de QR
+https://qrco.de/Bbva_login,bbva,2025-07-28 12:05:48,PhishTank,banca,acortador qr
+https://qrco.de/correos-web,correos,2025-07-28 12:05:48,PhishTank,logistica,ocultador qr
+https://redorange-54175.firebaseapp.com/,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,phishinng en FIrebase dirigido a Orange
+https://ref-orange-login-vocal.weebly.com/,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,phishing en Weebly imitanndo a Orange
+https://rofafi3057.wixsite.com/espace-orange-pro,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,"phishing en wix, imitador de orange pro, clientes empresariales de Orange"
+https://soportetuexperto-orange-es.webflow.io/,orange,2025-07-28 12:05:48,PhishTank,telecomunicaciones,Phishing Orange en Webflow
+https://supercaracol.ar/wp-content/plugins/akismet/dgt/ddgg/cold/cc.php,dgt,2025-07-28 12:05:48,PhishTank,público,sitio argentino comprometido para alojar phishing dirigido a la DGT
+https://q-r.to/caixabank,caixabank,2025-07-28 12:05:48,PhishTank,banca,oculta el destino real con qr code generator
+https://qrco.de/BBVA24,bbva,2025-07-28 12:05:48,PhishTank,banca,otro tipo de acortador de QR
+https://bit.ly/-ICorreos,correos,2025-07-28 12:05:48,PhishTank,logística,"duplicada, no se añade"
+https://qrco.de/correos-web,correos,2025-07-28 12:05:48,PhishTank,logistica,ocultador qr
+https://bit.ly/llCorreos,correos,2025-07-28 12:05:48,PhishTank,logística,no se inclute para evitar ruido de duplicados
+https://netflix-pagos.blog/,netflix,2025-07-26 21:16:53+00:00,phishtank,streaming,"suplantación de Netflix, TLD .blog, nunca usado en facturación"
+https://gtwky.caniqqm.es/f8qrRCRAr6P!lhN5Qx/*c3RlcGhhbmllLmRvZXp5QGFmdHJhbC5jb20=,desconocido,2025-07-03 08:28:57+00:00,phishtank,genérico,ejemplo de abuso de dominios .es con rutas codificadas
+https://crelosa.app/lnn/dhl-new%20(1).html,DHL,2025-06-21 09:29:51+00:00,phishtank,logística,Aunque esté en ingés es relevante en España
+https://www.binance.com.loginsn.cc/,Binance,2025-06-08 05:01:06+00:00,phishtank,cripto,ejemplo de typosquatting con marca cripto
+https://fdyprnwbs4plb-pages-dev.translate.goog/acount.apple.com.html?_x_tr_sch=&amp%3B_x_tr_sl=monex&amp%3B_x_tr_tl=ja,Apple,2025-06-03 00:50:08+00:00,phishtank,saas,uso de servicios de traduccion de Google para alojarphishing
+https://q-r.to/Multa-DGT,DGT,2025-05-07 23:14:25+00:00,phishtank,público,acortador + institución española
+https://b9xja.dgnsvwrk.es/DwD9I@prmk4JYY2V/*toto@microsoft.com,microsoft,2025-05-07 12:59:58+00:00,phishtank,saas,abuso de .es + marca
+https://ing.movil-inicios-es.com/A8lQQkpe8aUKtxQm/login0,ING,2025-01-25 16:13:16+00:00,phishtank,banca,banca española + keywords
+https://netflix-seguro.com/index.php,Netflix,2025-01-25 13:05:43+00:00,phishtank,streaming,Typosquatting con keyword en español
+https://www.ing-appmovil-inicio.com/,ing,2025-01-13 20:34:30+00:00,phishtank,banca,typosquatting con terminología en español
+https://www.ing-web-inicios.com/,ing,2025-01-03 13:02:37+00:00,phishtank,banca,typosquatting con terminología en español
+https://www.ing-es-movil.com/,ing,2024-12-28 13:44:28+00:00,phishtank,banca,typosquatting con terminología en español
+https://cn83141.tw1.ru/DGT,dgt,2024-10-04 18:54:45+00:00,phishtank,público,"hosting extranjero (.ru), pero con target español"
+https://seguridad-ingclientes.com/es,ing,2024-09-04 17:52:33+00:00,phishtank,banca,typosquatting con terminología en español

@@ -2,31 +2,36 @@
 
 ## Descripción
 
-Este proyecto busca desarrollar un modelo robusto para detectar phishing en URLs, centrado en el contexto español, con énfasis en banca y sectores críticos. El pipeline cubre desde la recolección y limpieza de datos, hasta el entrenamiento y despliegue del modelo.
+Objetivo: construir un pipeline reproducible para detectar phishing a nivel URL en contexto español (.es y marcas locales), con datos reales, documentación clara y trazabilidad para entrevistas técnicas.
 
 ## Estructura del proyecto
 
-- data/
-    - raw/
-        - legitimas/<sector>/*.csv # fuentes crudas legítimas por sector
-        - phishing/<fuente>/*.csv # fuentes crudas de feeds phishing
-    - processed/
-- notebooks/limpieza/legitimas/.ipynb # plantilla + notebooks por sector
-- scripts/.py # utilidades y runners
-- results/* # informes/figuras/métricas (no datasets)
-- models/* # checkpoints/modelos
-docs/daily_log.md # log de ejecuciones
+.
+├── data/
+│ ├── raw/ # Datos crudos por fuente (NO tocar)
+│ ├── clean/ # Datos tras limpieza inicial (por fuente)
+│ └── final/ # Datasets listos para modelar (unificados/equilibrados)
+├── docs/
+│ ├── datasets/ # Fichas por fuente (README por dataset)
+│ ├── plan/ # Roadmaps, decisiones, resúmenes
+│ └── README_notebooks.md # Índice y estado de notebooks
+├── logs/ # Bitácoras de limpiezas/ejecuciones
+├── models/ # Modelos/artefactos de entrenamiento
+├── notebooks/ # EDA, scraping, limpieza por pasos
+├── results/ # Figuras, informes, métricas
+├── scripts/ # CLIs: ingest/clean/merge
+├── requirements.txt
+└── README.md # (este archivo)
 
+## Datasets (estado actual)
 
-## Recolección y gestión de datos de phishing
-
-- **Feeds principales:**  
-  - **URLhaus:** Feed `csv_online` (solo URLs activas). No se usa la API por bloqueos a IPs españolas.  
-  - **PhishTank:** Dataset global filtrado, guardando fechas, estado online y verificación.
-  - **OpenPhish:** Feed gratuito, normalmente solo URLs; si es posible, se añade fecha y tipo de amenaza.
-- Todos los datos se almacenan individualmente en `/data/raw/phishing/` para permitir análisis por fuente y máxima transparencia.
-- Durante el preprocesado, los datasets se fusionan, deduplican y normalizan, añadiendo siempre una columna `source`.
-
+PhishTank — limpieza inicial completada → data/clean/phishtank_es.csv (42 URLs)
+Ficha: docs/datasets/phishtank.md
+Tweetfeed — pendiente de limpieza (objetivo ≈ 58 URLs) para alcanzar ≥ 100 phishing totales
+Ficha: docs/datasets/tweetfeed.md
+URLhaus / OpenPhish — definidos como fuentes adicionales; integración posterior a Tweetfeed.
+Legítimas (ES) — recogida sectorial (banca y críticos) en data/raw/legitimas/<sector>/; limpieza por sector en data/clean/legitimas_<sector>.csv.
+Nota de sesgo: filtrar por .es/marca no garantiza campaña exclusivamente española. Se realizará spot‑check manual y documentación de falsos positivos.
 ## Dataset de URLs legítimas
 
 URLs recogidas manualmente de bancos españoles y otras fuentes relevantes, priorizando rutas de acceso y autenticación, excluyendo secciones irrelevantes.

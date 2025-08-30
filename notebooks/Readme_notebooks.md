@@ -33,3 +33,4 @@ Esta carpeta contiene los notebooks usados en el desarrollo del proyecto de dete
 ---
 
 *Este README se actualizará conforme avance el proyecto y se completen nuevas fases de scraping y análisis.*
+“Se revisaron manualmente 2.694 URLs candidatas. Se completó la columna ruido_estimado y se dividió el dataset en campañas válidas para España vs. descartadas LatAm/PT/otros. Este proceso está documentado en docs/limpieza_manual_pt.md.”

@@ -103,6 +103,11 @@
 - Investigar y añadir fuentes centradas en phishing a entidades españolas.
 
 ---
+## 26/08/2025 
+Primer filtrado por etiquetas: de 68.920 URLs crudas se mantienen solo aquellas con #phishing en la columna tags. Se descartan las relacionadas exclusivamente con malware o C2 (CobaltStrike, Njrat, etc.).
+En keywords me quedo corto, más adelante se a
+
+
 
 ## Plantilla para nuevas entradas
 
