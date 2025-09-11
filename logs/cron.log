@@ -1,0 +1,484 @@
+[INFO] Guardadas 300 URLs en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardadas 300 URLs en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardadas 300 URLs en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing
+[INFO] Guardadas 300 URLs en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing
+[INFO] Guardadas 300 URLs en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardadas 300 URLs en /Users/test/Desktop/phishing-detector/data/raw/phishing
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+[INFO] Guardados 300 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardados 12095 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+[INFO] Guardados 300 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardados 12670 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 25, in update_repo
+    Repo.clone_from(repo_url, local_path)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/repo/base.py", line 1525, in clone_from
+    return cls._clone(
+           ~~~~~~~~~~^
+        git,
+        ^^^^
+    ...<7 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/repo/base.py", line 1396, in _clone
+    finalize_process(proc, stderr=stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/util.py", line 504, in finalize_process
+    proc.wait(**kwargs)
+    ~~~~~~~~~^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git clone -v -- https://github.com/0xDanielLopez/TweetFeed.git ./TweetFeed
+  stderr: 'Cloning into './TweetFeed'...
+POST git-upload-pack (191 bytes)
+POST git-upload-pack (233 bytes)
+error: RPC failed; curl 56 Recv failure: Connection reset by peer
+error: 124 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
+'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+[INFO] Guardados 300 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardados 11124 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+[INFO] Guardados 300 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardados 13394 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+[INFO] Guardados 300 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardados 13331 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(1)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: unable to access 'https://github.com/0xDanielLopez/TweetFeed.git/': Could not resolve host: github.com'
+[WARNING] No se pudo descargar el feed de URLhaus. Ver logs para más información.
+[WARNING] No se pudo descargar el feed de OpenPhish. Ver logs para más información.
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+[INFO] Guardados 300 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+[INFO] Guardados 12735 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12529 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12646 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12125 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 11643 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12055 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12293 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 11533 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12092 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 12005 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 10725 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(1)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: unable to access 'https://github.com/0xDanielLopez/TweetFeed.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 11222 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 11020 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
+/opt/anaconda3/bin/python3: can't open file '/Users/test/Desktop/phishing-detector/scripts/automatizacion_phishstats.py': [Errno 2] No such file or directory
+/Users/test/Desktop/phishing-detector/scripts/automatizacion_openphish.py:130: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  ap.add_argument("--date", default=datetime.utcnow().strftime("%Y-%m-%d"),
+usage: automatizacion_openphish.py [-h] --outdir OUTDIR [--date DATE]
+automatizacion_openphish.py: error: the following arguments are required: --outdir
+[INFO] Guardados 11299 registros procesados en /Users/test/Desktop/phishing-detector/data/raw/phishing
+Traceback (most recent call last):
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 72, in <module>
+    main()
+    ~~~~^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 64, in main
+    update_repo(REPO_URL, LOCAL_PATH)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/test/Desktop/phishing-detector/scripts/tweet_feed.py", line 31, in update_repo
+    origin.pull()
+    ~~~~~~~~~~~^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 1123, in pull
+    res = self._get_fetch_info_from_stderr(proc, progress, kill_after_timeout=kill_after_timeout)
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/remote.py", line 895, in _get_fetch_info_from_stderr
+    proc.wait(stderr=stderr_text)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/git/cmd.py", line 834, in wait
+    raise GitCommandError(remove_password_if_present(self.args), status, errstr)
+git.exc.GitCommandError: Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'fatal: Need to specify how to reconcile divergent branches.'
