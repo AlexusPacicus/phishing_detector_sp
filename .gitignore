@@ -1,16 +1,40 @@
-# Ignorar datos crudos y procesados
-data/raw/
-data/clean/
+# ==============================
+# Datos
+# ==============================
 
-# Cachés de Python y checkpoints de notebooks
+# Ignorar datasets crudos y temporales
+data/raw/
+data/interim/
+data/clean/*_consolidado.csv
+data/clean/*_prototipo.csv
+data/clean/*_limpio.csv
+data/clean/.ipynb_checkpoints/
+
+# Mantener finales y prototipo documentado
+!data/clean/*_final.csv
+!dataset/dataset_prototipo.csv
+!dataset/dataset_prototipo.md
+!features/features_prototipo.csv
+!features/features.md
+!EDA/EDA.md
+!EDA/EDA_prototipo.ipynb
+
+# ==============================
+# Cachés de Python y notebooks
+# ==============================
 __pycache__/
 .ipynb_checkpoints/
 
-# Archivos de configuración de IDEs
+# ==============================
+# Archivos de sistema e IDEs
+# ==============================
+.DS_Store
+Thumbs.db
 .vscode/
 .idea/
 
-# Archivos del sistema
-.DS_Store
-Thumbs.db
-
+# ==============================
+# Logs
+# ==============================
+logs/*.log
+scripts/logs/*.log
