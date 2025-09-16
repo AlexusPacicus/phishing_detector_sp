@@ -1,5 +1,9 @@
 # 🛡️ Phishing Detector (Prototipo Español)
 
+![Python](https://img.shields.io/badge/python-3.11-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+
 ## 📌 Contexto  
 El phishing es uno de los vectores de ataque más comunes en España, afectando a todo tipo de sectores, siendo la **banca** el más golpeado (concentrando más del 65% de los ataques).  
 
