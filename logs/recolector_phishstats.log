@@ -1,5 +1,0 @@
-2025-07-29 19:02:53,970 - INFO - [PhishStats] Intento 1 de descarga desde https://api.phishstats.info/api/phishing?_sort=-id
-2025-07-29 19:02:54,384 - INFO - [PhishStats] Descargados 20 registros en el intento 1.
-2025-07-29 19:02:54,395 - INFO - [PhishStats] Duplicados eliminados: 0
-2025-07-29 19:02:54,395 - INFO - [PhishStats] Total URLs únicas tras limpieza: 20
-2025-07-29 19:02:54,403 - INFO - [PhishStats] Guardados 20 registros en /Users/test/Desktop/phishing-detector/data/raw/phishing/phishstats_online_20250729_190254.csv.

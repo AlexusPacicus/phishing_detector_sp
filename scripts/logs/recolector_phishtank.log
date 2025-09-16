@@ -1,3 +1,0 @@
-2025-07-28 12:05:43,280 - INFO - Intento 1 de descarga desde https://data.phishtank.com/data/online-valid.csv
-2025-07-28 12:05:48,497 - INFO - Archivo descargado y guardado en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing/phishtank_online_valid_20250728_120548.csv
-2025-07-28 12:05:48,799 - INFO - Guardados 51716 registros procesados en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing/phishtank_procesado_20250728_120548.csv.

@@ -1,9 +1,0 @@
-2025-07-23 23:00:03,204 - INFO - Intento 1 de descarga desde https://openphish.com/feed.txt
-2025-07-23 23:00:04,153 - INFO - Descargadas 300 URLs en el intento 1.
-2025-07-23 23:00:04,166 - INFO - Guardados 300 registros en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing/openphish_20250723_230004.csv.
-2025-07-27 11:03:41,537 - INFO - Intento 1 de descarga desde https://openphish.com/feed.txt
-2025-07-27 11:03:42,330 - INFO - Descargadas 300 URLs en el intento 1.
-2025-07-27 11:03:42,344 - INFO - Guardados 300 registros en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing/openphish_20250727_110342.csv.
-2025-07-28 12:05:57,750 - INFO - Intento 1 de descarga desde https://openphish.com/feed.txt
-2025-07-28 12:05:58,452 - INFO - Descargadas 300 URLs en el intento 1.
-2025-07-28 12:05:58,460 - INFO - Guardados 300 registros en /Users/test/Desktop/phishing-detector/scripts/data/raw/phishing/openphish_20250728_120558.csv.
