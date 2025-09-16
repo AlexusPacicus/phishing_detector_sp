@@ -1,4 +1,9 @@
 pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+tldextract
+joblib
+notebook
 requests
-validators
-python-dateutil
