@@ -1,72 +1,96 @@
-# Proyecto Detección de Phishing en URLs (Contexto Español)
+# 🛡️ Phishing Detector (Prototipo Español)
 
-## Descripción
+## 📌 Contexto  
+El phishing es uno de los vectores de ataque más comunes en España, afectando a todo tipo de sectores, siendo la **banca** el más golpeado (concentrando más del 65% de los ataques).  
 
-Objetivo: construir un pipeline reproducible para detectar phishing a nivel URL en contexto español (.es y marcas locales), con datos reales, documentación clara y trazabilidad para entrevistas técnicas.
-
-## Estructura del proyecto
-
-.
-├── data/
-│ ├── raw/ # Datos crudos por fuente (NO tocar)
-│ ├── clean/ # Datos tras limpieza inicial (por fuente)
-│ └── final/ # Datasets listos para modelar (unificados/equilibrados)
-├── docs/
-│ ├── datasets/ # Fichas por fuente (README por dataset)
-│ ├── plan/ # Roadmaps, decisiones, resúmenes
-│ └── README_notebooks.md # Índice y estado de notebooks
-├── logs/ # Bitácoras de limpiezas/ejecuciones
-├── models/ # Modelos/artefactos de entrenamiento
-├── notebooks/ # EDA, scraping, limpieza por pasos
-├── results/ # Figuras, informes, métricas
-├── scripts/ # CLIs: ingest/clean/merge
-├── requirements.txt
-└── README.md # (este archivo)
-
-## Datasets (estado actual)
-
-PhishTank — limpieza inicial completada → data/clean/phishtank_es.csv (42 URLs)
-Ficha: docs/datasets/phishtank.md
-Tweetfeed — pendiente de limpieza (objetivo ≈ 58 URLs) para alcanzar ≥ 100 phishing totales
-Ficha: docs/datasets/tweetfeed.md
-URLhaus / OpenPhish — definidos como fuentes adicionales; integración posterior a Tweetfeed.
-Legítimas (ES) — recogida sectorial (banca y críticos) en data/raw/legitimas/<sector>/; limpieza por sector en data/clean/legitimas_<sector>.csv.
-Nota de sesgo: filtrar por .es/marca no garantiza campaña exclusivamente española. Se realizará spot‑check manual y documentación de falsos positivos.
-## Dataset de URLs legítimas
-
-URLs recogidas manualmente de bancos españoles y otras fuentes relevantes, priorizando rutas de acceso y autenticación, excluyendo secciones irrelevantes.
-
-## Metodología
-
-- Automatización y logging de todo el proceso de scraping y recolección.
-- Validación manual y eliminación de falsos positivos.
-- Normalización de campos y análisis exploratorio en notebooks.
-
-## Documentación complementaria
-
-- [Estructura detallada de datos y fuentes](data/Readme_data.md)
-- [Tabla maestra de empresas objetivo por sector](docs/tabla_maestra_empresas.md)
+Este proyecto construye un **pipeline completo** para la detección de URLs maliciosas en el **contexto español**, bajo la premisa de que cuanto más específico sea el dataset, mejores resultados se obtienen.  
 
 ---
 
-## Estado actual y próximos pasos
-
-- **Actualmente:** automatizando la recogida y documentación de datos de phishing y URLs legítimas.
-- **Próximos pasos:** ampliar sectores, fusionar datasets y comenzar el análisis de features y modelado.
+## 🎯 Objetivo  
+Desarrollar un prototipo **reproducible y explicable** de detección de phishing, capaz de:  
+- Diferenciar **URLs legítimas** de **URLs de phishing**.  
+- Priorizar el **recall** para minimizar falsos negativos.  
+- Mantener **trazabilidad completa**: desde los datos crudos hasta el modelo entrenado.  
 
 ---
 
-## Automatización de la recolección de URLs de phishing
+## 🗂️ Estructura del proyecto  
 
-Se ha implementado un sistema automatizado para la descarga y procesamiento de feeds de URLs phishing desde el repositorio [TweetFeed](https://github.com/0xDanielLopez/TweetFeed).
+```
+phishing-detector/
+│
+├── data/            # Datos crudos, intermedios y finales
+├── limpieza/        # Notebooks + documentación de limpieza
+├── features/        # Ingeniería de características + gráficas
+├── EDA/             # Análisis exploratorio
+├── entrenamiento/   # Entrenamiento del modelo y resultados
+├── models/          # Modelos finales exportados (.joblib, .json)
+├── scripts/         # Automatización de scraping y feeds
+├── logs/            # Logs de ejecución
+└── README.md        # Este archivo
+```
 
-### Características principales:
+---
 
-- Clonación y actualización automática del repositorio TweetFeed utilizando GitPython.  
-- Procesamiento del archivo `year.csv` para filtrar URLs phishing y eliminar duplicados.  
-- Añadido de metadatos con timestamp UTC para cada ejecución.  
-- Guardado de los datos procesados en archivos CSV con nombre único por fecha y hora, asegurando histórico.  
-- Registro detallado de todas las operaciones mediante logs rotatorios para facilitar auditoría y depuración.  
-- Programación mediante `crontab` para ejecutar el script dos veces al día (11:00 y 23:00).
+## ⚙️ Instalación  
 
-Esta automatización garantiza que el dataset se mantenga actualizado sin intervención manual, mejorando la trazabilidad y la calidad del proyecto.
+```bash
+git clone https://github.com/AlexusPacicus/phishing-detector.git
+cd phishing-detector
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Uso  
+
+1. **Recolectar datos**  
+   ```bash
+   python scripts/aut_openphish.py
+   ```
+
+2. **Limpieza manual / heurística**  
+   Ejecutar notebooks en `limpieza/`.
+
+3. **Entrenar modelo**  
+   ```bash
+   jupyter notebook entrenamiento/entrenamiento_prototipo.ipynb
+   ```
+
+4. **Modelo final guardado en**  
+   ```
+   models/logreg_phishing_final.joblib
+   ```
+
+---
+
+## 📊 Resultados  
+
+- **Modelo seleccionado**: Logistic Regression  
+- **Umbral óptimo**: `0.425`  
+- **Métricas clave (CV promedio, k=5–10):**  
+  - Precision ≈ 0.85  
+  - Recall ≈ 0.92  
+  - ROC-AUC ≈ 0.95  
+
+📈 **Gráficas principales** (en `entrenamiento/img/`):  
+- Curva Precision-Recall  
+- Matriz de confusión  
+- ROC-AUC  
+- Importancia de features  
+
+---
+
+## 🧩 Valor del proyecto  
+
+- Pipeline completo y documentado.  
+- Dataset curado específicamente para **phishing en España**.  
+- Features explicables y fácilmente integrables en un SOC.  
+- Preparado para futuras ampliaciones: **SMS, email phishing, integración con SIEM**.  
+
+---
+
+## 📜 Licencia  
+
+Este proyecto se distribuye bajo licencia **MIT**.  
