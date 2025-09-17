@@ -98,3 +98,63 @@ pip install -r requirements.txt
 ## 📜 Licencia  
 
 Este proyecto se distribuye bajo licencia **MIT**.  
+
+## 🚀 Despliegue con Docker
+
+Este proyecto incluye un `Dockerfile` para levantar la API de forma sencilla en cualquier máquina con Docker instalado.
+
+1. Construir la imagen
+Desde la raíz del proyecto:
+docker build -t phishing-detector .
+
+2. Ejecutar el contenedor
+docker run -p 8000:8000 phishing-detector
+
+3. Acceder a la API
+Swagger UI → http://127.0.0.1:8000/docs
+Healthcheck → http://127.0.0.1:8000/health
+Predicción (POST /predict) → enviar un JSON con la URL a analizar, por ejemplo:
+{
+  "url": "https://soporte-netflx.com/"
+}
+
+4. Ejemplo de respuesta
+
+{
+  "label": 1,
+  "probability": 0.7517,
+  "threshold": 0.425,
+  "features": {
+    "domain_length": 14,
+    "domain_entropy": 3.37,
+    "num_params": 0,
+    "trusted_path_token": 0,
+    "contains_percent": 0,
+    "contains_equal": 0,
+    "suspicious_path_token": 0,
+    "free_hosting": 0,
+    "protocol": 1,
+    "tld_group": "com"
+  }
+}
+
+
+---
+
+### Tests automáticos con Pytest
+
+
+# 🧪 Tests automáticos
+
+Este proyecto incluye pruebas con **pytest** para verificar:
+
+- Que `extract_features()` devuelve las 10 features esperadas.  
+- Que la API responde correctamente en `/health` y `/predict`.  
+
+1. Ejecutar los tests
+Desde la raíz del proyecto:
+pytest -q
+
+2. Ejemplo de salida esperada
+....                                                                     [100%]
+4 passed in 1.64s
