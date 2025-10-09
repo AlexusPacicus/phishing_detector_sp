@@ -158,3 +158,4 @@ pytest -q
 2. Ejemplo de salida esperada
 ....                                                                     [100%]
 4 passed in 1.64s
+
