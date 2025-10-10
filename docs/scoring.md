@@ -25,7 +25,7 @@
 ---
 
 ## 🔑 Umbral de decisión
-- **score_total ≥ 2** → URL orientada a España (detección amplia).  
+- **score_total ≥ 4** → URL orientada a España (detección amplia), estas urls serán usadas para mejorar el scoring.  
 - **score_total ≥ 7** → URL candidata a dataset phishing en español (alta confianza).  
 
 ---
@@ -47,7 +47,7 @@
 ## 🔄 Nota metodológica
 Las reglas y pesos se diseñaron a partir del **dataset prototipo** (200 URLs balanceadas).  
 Se aplicaron sobre el nuevo feed (Phishing.Database + otros) para seleccionar las primeras URLs.  
-En versiones futuras se ajustarán los pesos en base a **falsos positivos/negativos observados**.  
+En versiones futuras se ajustarán los pesos en base a **falsos positivos/negativos observados**, usando las urls candidadatas entre 4 y 7.  
 
 ---
 
