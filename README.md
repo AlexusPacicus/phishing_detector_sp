@@ -159,3 +159,89 @@ pytest -q
 ....                                                                     [100%]
 4 passed in 1.64s
 
+---
+
+## 🔮 Próximos avances – Fase 3: Inteligencia semántica y detección de ruido
+
+En la siguiente etapa, el proyecto incorporará **análisis vectorial y búsqueda semántica** para reforzar el sistema de scoring y mejorar la calidad del dataset.
+
+### 🎯 Objetivos principales
+1. **Representar cada URL como un embedding** → un vector numérico que capta su significado o estructura.
+2. **Calcular un centroide español** → el punto medio del espacio vectorial de todas las URLs confirmadas como orientadas a España.
+3. **Medir el “ruido semántico”** de cada nueva URL:
+   - Se calcula la **similitud del coseno** entre la URL y el centroide español.
+   - Cuanto más baja sea la similitud, más alejada está del patrón español y más probable es que sea ruido o irrelevante.
+   - Esta medida (`ruido_semantico`) se combinará con el `score_total` actual como señal adicional.
+4. **Almacenar los embeddings en PostgreSQL usando `pgvector`**, para permitir:
+   - Búsqueda semántica de campañas parecidas.
+   - Detección de variantes o clones.
+   - Visualización de clusters de phishing por marca o sector.
+
+### 🧩 Ejemplo conceptual
+- URLs españolas → agrupadas en torno al centroide.  
+- Nueva URL → se mide su distancia (1 - coseno) al centroide.  
+- Cuanto mayor la distancia, **más ruido semántico**.  
+
+```text
+         ·        (URLs españolas)
+       ·   ·
+         ⊕  ← Centroide español
+          \
+           \_·  (URL alejada → alto ruido)
+
+
+
+🧭 Próximos pasos – Fase 3 (desde hoy)
+1️⃣ Preparar dataset de legítimas v2
+Objetivo: disponer de ~150 URLs legítimas nuevas para validación y contrapeso.
+Tareas:
+Recolectar ~200 candidatas (banca, logística, SaaS, público, retail, cripto…).
+Aplicar los gates definidos (is_https=1, sin hosting gratuito, sin /wp-, etc.).
+Deduplicar semánticamente (≤95 % similitud).
+Seleccionar 150 finales (keep=1) + 15–20 como holdout.
+📄 Entregable: data/processed/legitimas_v2_final.csv
+📘 Documentar en: docs/legitimas_v2_calidad.md
+2️⃣ Validación con el modelo actual (LogReg v1)
+Objetivo: medir el rendimiento real con las 209 phishing + 150 legítimas.
+Tareas:
+Combinar datasets → eval_set_inclusion1.csv.
+Extraer features con tu extract_features() actual.
+Ejecutar el modelo (logreg_phishing_final.joblib).
+Exportar métricas globales y por sector:
+precision, recall, F1, matriz de confusión.
+Listado de falsos negativos priorizados (falsos_negativos_priorizados.csv).
+📄 Entregables:
+outputs/inclusion1_eval/predicciones_eval.csv
+docs/evaluacion_inclusion1.md
+3️⃣ Selección del nuevo bloque de entrenamiento
+Objetivo: crear dataset v2 balanceado (≈300–350 URLs).
+Reglas:
+Incluir phishing con ruido_estimado ≤ 20 y que sean FN o TP en validación.
+Capar por entidad (máx. 8–10 por marca).
+Añadir las legítimas v2 seleccionadas.
+📄 Entregable: data/processed/dataset_entrenamiento_v2.csv
+4️⃣ Reentrenamiento de modelo (v2)
+Objetivo: entrenar, comparar y calibrar modelos.
+Tareas:
+Entrenar Logistic Regression, RandomForest y SVC.
+Usar GroupKFold (evitar leakage por campaña).
+Optimizar umbral: max recall ≥ 0.9, precision ≥ 0.8.
+Exportar modelo + metadata.json.
+📄 Entregables:
+models/logreg_phishing_v2.joblib
+docs/entrenamiento_v2.md
+5️⃣ Inicio de la Fase 3 – Inteligencia semántica
+Objetivo: integrar embeddings y detección de ruido semántico.
+Tareas:
+Generar embeddings (MiniLM / multilingual-distil).
+Calcular centroide español (media de embeddings de campañas confirmadas).
+Medir ruido_semantico = 1 − coseno(URL, centroide).
+Integrar ruido_semantico al scoring como nueva señal.
+📄 Entregables:
+notebooks/semantic_noise.ipynb
+docs/scoring_v3_plan.md
+🧩 Revisión recomendada antes de cerrar cada subfase
+✅ Actualizar documentación (docs/…).
+✅ Exportar métricas y CSV de salida.
+✅ Anotar observaciones en avance_<fecha>.md.
+✅ Publicar en LinkedIn los hitos clave (validación, embeddings, etc.).
