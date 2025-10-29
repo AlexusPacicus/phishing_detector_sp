@@ -70,4 +70,6 @@ Generado: 2025-10-21T14:50:31.277253Z
 - `phishing_v2_holdout.csv` — holdout (resto de URLs verificadas)
 
 
----
+La validación de inclusión v2 concluye con 0.85 accuracy y 0.93 ROC-AUC.
+Se identifican errores concentrados en kits .live y en portales legítimos con rutas /login.
+Próxima etapa: revisión de features y reentrenamiento v2.”
