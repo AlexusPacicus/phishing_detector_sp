@@ -10,7 +10,7 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT))
 
-from features.features import extract_features
+from features.features_base import extract_features
 
 
 # === CONFIGURACIÓN ===

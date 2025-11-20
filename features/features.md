@@ -1,229 +1,177 @@
-# 🧩 Feature Engineering – Prototipo Phishing
+# 🧩 Features v2 — Ingeniería de características
 
-En este Readme se explica la elección de **10 features** para el primer prototipo de detección de phishing.
+**Versión:** 2.2 (implementación final consolidada)  
+**Fecha de cierre:** 04/11/2025  
+**Responsable:** *Alexis Zapico Fernández*  
+**Archivo principal:** `features_v2.py`  
+**Constantes:** `features_constantes.py`  
+**Dataset base:** `dataset_full_v2_2.csv` (500 URLs: 250 phishing / 250 legítimas)
 
-El dataset contiene **200 URLs balanceadas** (100 legítimas vs 100 phishing), por lo que se decidió elegir un número reducido de features, que sean explicables y fáciles de interpretar, tengan suficinente representatividad (o que sean propias de únicamente una etiqueta) y que cubran diferentes sectores (longitud, entropía, símbolos...). 
+---
 
-Cada feature se analiza de la siguiente forma:
+## 🧠 1️⃣ Objetivo
 
-- **Descripción** → Qué mide.
-- **Resultados** → Observaciones en el dataset.
-- **Criterios de selección** → Umbrales usados para decidir validez.
-- **Clasificación** → fuerte, moderada o de nicho.
-Además, en caso de que el **EDA muestre tendencias claras y consistentes**, se puede mantener una feature aunque no cumpla estrictamente los umbrales definidos.
+La versión 2 del módulo de *Feature Engineering* redefine por completo el enfoque del prototipo inicial para adaptarlo al **phishing moderno en España (2024–2025)**.
 
-Los criterios aplicados fueron:  
-- Diferencia relativa ≥ **50%** → feature fuerte.  
-- Diferencia relativa ≥ **30%** (pero <50%) → feature moderada.  
-- Diferencia absoluta ≥ **10 puntos porcentuales** → feature fuerte.  
-- Para features con valores bajos (media <10):  
-  - Diferencia absoluta ≥ **5 caracteres** → fuerte.  
-  - Diferencia absoluta ≥ **3 caracteres** → moderada.  
-- Exclusividad (0% en una clase, >0% en la otra) → feature específica.  
-  - Nota: si en futuras ampliaciones de dataset no ganan representatividad, se eliminarán.
-- Excepción: si en el EDA se detectan patrones consistentes, se pueden mantener provisionalmente pese a no alcanzar los umbrales.    
+Las campañas actuales se caracterizan por:
+- **Dominios cortos y realistas**, con HTTPS casi siempre activo.  
+- **Tokens en castellano** en rutas coherentes (`/verificar`, `/paquete`, `/clientes`).  
+- **Hostings temporales o baratos** (`.live`, `.app`, `.shop`, `.web.app`).  
+- **Redirecciones OAuth / SSO legítimas** empleadas como disfraz.  
 
+🎯 **Objetivo principal:**  
+Reducir falsos positivos en portales oficiales y mejorar el recall en campañas recientes, añadiendo **contexto semántico y técnico** (TLD, whitelist, tokens sectoriales).
 
-Las gráficas asociadas están en la carpeta `img/`.
+---
 
+## ⚙️ 2️⃣ Comparativa v1 → v2
 
-## 1. `domain_length`
-**Descripción:** número de caracteres en el dominio principal de la URL.  
-Los dominios de phishing tienden a ser más largos porque suelen incluir palabras adicionales (ej. *seguridad*, *verificación*) o variaciones de marcas legítimas.  
-**Resultados:**  
-- Legítimas → media = **8.1** ± 3.8  
-- Phishing → media = **11.3** ± 5.1  
-- Diferencia relativa = **+38%**  
-- Diferencia absoluta = **+3.2 caracteres**  
-**Representatividad:** en ≈80% de los casos, los dominios phishing superan la longitud media de los dominios legítimos, lo que confirma una tendencia consistente.  
-**Criterios de selección:** cumple diferencia relativa ≥30%.  
-**Clasificación:** Moderada.  
+| Aspecto | v1 | v2 | Evolución |
+|----------|----|----|-----------|
+| Nº total de features | 10 | 14 | +4 nuevas o derivadas |
+| Enfoque dominante | Estructural | Contextual / semántico | Cambio de paradigma |
+| Peso de infraestructura | Alto | Bajo / contextualizado | ↓ menor dependencia |
+| Uso de whitelist | No | Sí (`spanish_domains.csv`) | Legitimidad contextual |
+| Señales lingüísticas | Básicas (`login`, `cliente`) | Extendidas (`verificar`, `paquete`, `sms`, `pago`) | ↑ Recall |
+| Features derivadas | Ninguna | 4 combinadas | +4 interacciones |
+| Foco principal | Detección genérica | Phishing real español | ↑ Precisión contextual |
 
-![domain_length](img/domain_length_hist.png)
+---
 
+## 🔬 3️⃣ Lista de features v2
 
+| Feature | Tipo | Descripción breve |
+|----------|------|-------------------|
+| `domain_length` | Numérica | Longitud del dominio principal. |
+| `domain_entropy` | Numérica | Aleatoriedad de caracteres del dominio. |
+| `domain_complexity` | Numérica | Producto `entropy × length`. |
+| `tld_risk_weight` | Numérica | Riesgo asociado al TLD (.live, .app, .shop, .xyz, .ru…). |
+| `host_entropy` | Numérica | Aleatoriedad del subdominio (kits dinámicos). |
+| `param_count_boost` | Numérica | Nº de parámetros normalizado por longitud. |
+| `token_density` | Numérica | Densidad de tokens sospechosos en la ruta. |
+| `trusted_token_context` | Binaria | Evalúa coherencia entre tokens legítimos y dominio oficial. |
+| `suspicious_path_token` | Binaria | Tokens fraudulentos (`verificar`, `sms`, `pago`). |
+| `domain_whitelist_score` | Numérica | Coincidencia exacta con dominios españoles (`spanish_domains.csv`). |
+| `infra_risk` | Numérica | Riesgo técnico agregado (HTTP + TLD + hosting). |
+| `oauth_like_relief` | Binaria | Reduce penalización en flujos OAuth legítimos. |
+| `fake_tld_in_subdomain_or_path` | Binaria | Detecta engaños visuales (`bbva.es-login.com`). |
 
-## 2. `domain_entropy`
-**Descripción:** mide la aleatoriedad de los caracteres en el dominio.  
-Los dominios phishing suelen tener mayor entropía porque utilizan nombres menos naturales, cadenas aleatorias o combinaciones extrañas para evadir detección (ej. `authline-checkappr0v.com.es`).  
-**Resultados:**  
-- Legítimas → media = **2.47** ± 0.55  
-- Phishing → media = **2.89** ± 0.63  
-- Diferencia relativa = **+17%**  
-- Diferencia absoluta = **+0.42** 
-**Representatividad:** aunque la diferencia no es muy grande, en ≈65% de los casos los dominios phishing presentan mayor entropía que la media de las legítimas, lo que indica un patrón consistente.   
-**Criterios de selección:** Pese a no alcanzar los criterios, se mantiene al observar una tendencia clara en el EDA.
-**Clasificación:** Moderada.  
+---
 
-![domain_entropy](img/domain_entropy_hist.png)
+## 🧱 4️⃣ Bloques funcionales
 
+### 🔹 Bloque 1 — Complejidad y legitimidad de dominio
 
+- **`domain_complexity`** = `domain_length × domain_entropy`  
+  Captura densidad informativa y ofuscación de dominios.  
+  - Dominios cortos y simples → legítimos (`bbva.es`).  
+  - Dominios largos y aleatorios → sospechosos (`authline-checkappr0v.com.es`).
 
+- **`host_entropy`** mide la aleatoriedad del subdominio, útil para detectar kits sobre hostings legítimos.
 
-## 3. `num_params`
-**Descripción:** número de parámetros presentes en la query de la URL (`?a=1&b=2`).  
-Los atacantes suelen añadir parámetros falsos o innecesarios para simular procesos de validación, tracking o formularios.  
-**Resultados:**  
-- Legítimas → 4% (4 de 100)  
-- Phishing → 12% (12 de 100)  
-- Diferencia relativa = **+200%**  
-- Diferencia absoluta = **+8 puntos porcentuales**  
-**Representatividad:** Aunque cumple con creces el criterio de diferencia relativa, la cobertura es baja, ya que solo aparece en ≈1 de cada 10 URLs phishing.  
-**Criterios de selección:** Diferencia relativa >50%.  
-**Clasificación:** Moderada.  
+- **`domain_whitelist_score`** valida si el dominio pertenece a la lista `spanish_domains.csv`.  
+  - 1.0 → dominio oficial (`bbva.es`)  
+  - 0.6 → subdominio legítimo (`clientes.bbva.es`)  
+  - 0.0 → fuera de la whitelist  
 
-![num_params](img/num_params_hist.png)
+📘 *Método de cálculo:*  
+Basado en coincidencia exacta de `tldextract.registered_domain` contra `spanish_domains.csv` (no búsqueda por substring).
 
+📘 *Relación:*  
+`domain_complexity` y `host_entropy` aportan riesgo estructural, mientras `domain_whitelist_score` corrige falsos positivos mediante legitimidad nacional.
 
+---
 
-## 4. `trusted_path_token`
-**Descripción:** detecta tokens de confianza en la ruta de la URL (ej. `clientes`, `empresas`, `banca`, `seguridad`, `login`).  
-Estos términos son comunes en webs oficiales de bancos y servicios legítimos, mientras que en phishing aparecen con mucha menor frecuencia.  
-**Resultados:**  
-- Legítimas → 33% (33 de 100)  
-- Phishing → 5% (5 de 100)  
-- Diferencia absoluta = **28 puntos porcentuales**  
-- Diferencia relativa = **+560%**  
-**Representatividad:** una de cada tres URLs legítimas incluye estos tokens, frente a solo 1 de cada 20 phishing.  
-**Criterios de selección:** cumple diferencia absoluta y relativa.  
-**Clasificación:** ✅ Fuerte (feature legitimadora).  
+### 🔹 Bloque 2 — Contexto semántico de confianza
 
-![trusted_path_token](img/trusted_path_token_barplot.png)
-  
+Feature principal: **`trusted_token_context`**
 
+Sustituye `trusted_path_token` y `trusted_path_penalty` por una señal unificada.  
+Evalúa coherencia entre los tokens legítimos (`login`, `clientes`, `banca`) y el dominio al que pertenecen:
 
-## 5. `contains_percent`
-**Descripción:** presencia del símbolo `%` en la URL.  
-El `%` se utiliza en codificación de caracteres (`URL encoding`), por ejemplo `p%c3%a1gina` en lugar de `página`.    
-**Resultados:**  
-- Legítimas → 0% (0 de 100)  
-- Phishing → 6% (6 de 100)  
-**Representatividad:** señal exclusiva de phishing. Aparece en más casos que `@`, aunque sigue siendo minoritaria en el dataset. Puede aportar valor en combinación con otras features.  
-**Criterios de selección:** exclusividad (solo phishing).  
-**Clasificación:**  De nicho.   
+| Caso | Ejemplo | Resultado |
+|------|----------|-----------|
+| Token legítimo en dominio oficial | `clientes.bbva.es/login` | +1 |
+| Token legítimo en dominio falso | `bbva.es-login.com/login` | −1 |
+| Sin token o neutro | `paquete-live.com/envio` | 0 |
 
-![contains_percent](img/contains_percent_barplot.png)
+🔁 **Dependencia interna:**  
+`trusted_token_context ← trusted_path_token + domain_whitelist_score`
 
+📈 *Impacto:*  
+- Reduce FP en banca y SaaS (~−34 %).  
+- Mantiene recall global en ≈ 0.91.  
+- Aporta explicabilidad semántica.
 
-## 6. `contains_equal`
-**Descripción:** presencia del símbolo `=` en la URL.  
-Este símbolo aparece habitualmente en parámetros de consulta (`?a=1&b=2`).  
-En phishing suele utilizarse para:  
-- Simular formularios de validación o login.  
-- Añadir tokens falsos de sesión.  
-- Construir URLs más creíbles con datos codificados.  
-**Resultados:**  
-- Legítimas → 3% (3 de 100)  
-- Phishing → 8% (8 de 100)  
-- Diferencia relativa = **+167%**  
-- Diferencia absoluta = **+5 puntos porcentuales**  
-**Representatividad:** aunque la diferencia relativa es grande, la cobertura total es baja (<10% de URLs). Sirve como feature complementaria, pero no suficiente por sí sola.  
-**Criterios de selección:** diferencia relativa >50%.  
-**Clasificación:**  Moderada.  
-  
-![contains_equal](img/contains_equal_barplot.png)
+---
 
+### 🔹 Bloque 3 — Riesgo de infraestructura
 
-## 7. `protocol`
-**Descripción:** identifica si la URL utiliza `http` o `https`.  
-Tradicionalmente, el uso de `http` era un indicador claro de phishing, ya que los atacantes evitaban pagar certificados TLS.  
-**Resultados:**  
-- Legítimas → 100% usan `https` (100 de 100)  
-- Phishing → 85% usan `https`, 15% todavía usan `http`  
-- Diferencia absoluta = **15 puntos porcentuales**  
-**Representatividad:** cualquier URL legítima de la muestra utiliza `https`. La presencia de `http` es por tanto exclusiva de phishing, aunque solo se da en 15 de 100 casos.  
-**Criterios de selección:** diferencia absoluta >10 puntos.  
-**Clasificación:** Fuerte (aunque su relevancia es decreciente en datasets modernos, ya que la mayoría de campañas actuales también usan TLS).  
+`infra_risk` combina en una única métrica las señales técnicas:
 
-![protocol](img/protocol_barplot.png)
+\[
+infra\_risk = 0.3 × is\_http + tld\_risk\_weight + free\_hosting
+\]
 
+| Componente | Descripción | Peso |
+|-------------|--------------|------|
+| `is_http` | 1 si la URL usa HTTP sin cifrado | 0.3 |
+| `tld_risk_weight` | Riesgo del TLD (frecuencia / geopolítica) | 0–3 |
+| `free_hosting` | Hosting gratuito o temporal | 1.0 |
 
-## 8. `tld_group`
-**Descripción:** TLD agrupado en dos categorías:  
-- **Seguros** → `.es`, `.com`, más `.us` y `.network` (en este dataset solo aparecen en servicios legítimos).  
-- **Otros** → cualquier otro TLD.  
-En el contexto español, los dominios legítimos se concentran en `.es` y `.com`, mientras que el phishing tiende a diversificarse en TLDs alternativos, más baratos o menos regulados (`.app`, `.top`, `.xyz`, `.me`, `.site`, etc.).  
-**Resultados:**  
-- Legítimas → 93% seguros, 7% otros  
-- Phishing → 59% seguros, 41% otros  
-- Diferencia absoluta = **34 puntos**  
-**Representatividad:** 41 de 100 phishing utilizan TLDs fuera del grupo seguro, frente a 7 de 100 legítimas. Esto convierte a `tld_group` en una de las señales más claras y robustas del dataset.  
-**Criterios de selección:** diferencia absoluta >30 puntos.  
-**Clasificación:** Fuerte.  
-**Nota:** en este prototipo, `.us` y `.network` se reclasifican como seguros porque solo aparecen en URLs oficiales (Zoom y WalletConnect). En un dataset más amplio, esta decisión debería revisarse.  
+✅ *Ventajas:*  
+- Elimina duplicidades (`protocol`, `tld_risk_weight` como feature independiente).  
+- El componente `is_http` mantiene un peso bajo (0.3) para evitar sobrerreacción ante sitios no cifrados.  
+- Mejora estabilidad (ΔF1 ≈ ± 0.01).  
+- Mantiene coherencia con *scoring v2.1*.
 
-![tld_group](img/tld_group_barplot.png)
+---
 
-## 9. `suspicious_path_token`
-**Descripción:** detección de tokens sospechosos en la ruta de la URL (`php`, `html`, `index`, `view`, `principal`).  
-Los atacantes suelen usar estos términos por defecto en páginas clonadas, formularios básicos o archivos maliciosos, en lugar de rutas semánticas típicas de sitios legítimos (`/clientes`, `/empresas`, `/seguridad`).  
-**Resultados:**  
-- Legítimas → 10% (10 de 100)  
-- Phishing → 20% (20 de 100)  
-- Diferencia relativa = **+100%**  
-- Diferencia absoluta = **+10 puntos porcentuales**  
-**Representatividad:** 1 de cada 5 URLs phishing contiene tokens sospechosos en la ruta, frente a 1 de cada 10 legítimas. No es una señal decisiva, pero sí un refuerzo útil al combinarla con otras features.  
-**Criterios de selección:** diferencia relativa >50%.  
-**Clasificación:** Moderada.  
-  
+## 📖 5️⃣ Diccionario sectorial de tokens — `docs/tokens_por_sector.csv`
 
-![suspicious_path_token](img/suspicious_path_token_barplot.png)
+Define asociaciones entre tokens en castellano y su sector más probable, mejorando la sensibilidad contextual.
 
+| Sector | Ejemplos | Rango de pesos |
+|:-------|:----------|:---------------|
+| Banca / Fintech | verificar, acceso, seguridad, pin, tarjeta | 0.8–2.0 |
+| Logística | paquete, envio, aduanas, seguimiento, recibir | 1.0–1.5 |
+| SaaS / Cloud | login, auth, portal, dashboard, soporte | 0.5–1.0 |
+| Público / Gobierno | sede, tramite, cita, certificado | 0.8–1.2 |
+| Cripto / Fintech | wallet, transferencia, token | 0.8–1.2 |
+| Retail / e-commerce | pedido, factura, compra, devolucion | 0.5–1.0 |
+| Energía / Seguros | factura, consumo, contrato, cliente | 0.5–1.0 |
+| Genérico / Otros | cuenta, portal, usuario, datos | 0.5–1.0 |
 
-## 10. `free_hosting`
-**Descripción:** detecta si la URL pertenece a un dominio de hosting gratuito (ej. `webcindario.com`, `blogspot.com`, `sites.google.com`, `web.app`, etc.), ampliamente utiilizados en phsihing.  
-**Resultados:**  
-- Legítimas = 0%  
-- Phishing = 22%  
-- Diferencia absoluta = 22 puntos (exclusivo de phishing).  
-**Criterios de selección:** exclusividad con cobertura media-alta.  
-**Clasificación:** 🔹 Específica.  
+📄 **Archivo:** `docs/tokens_por_sector.csv` (~70 filas)  
+🧠 **Reglas de uso:**
+1. Solo se aplican pesos específicos si el sector es conocido o derivable (`brand_in_path`).  
+2. En caso contrario, se usa peso genérico bajo.  
+3. Siempre se combina con `trusted_token_context` y `domain_whitelist_score` para evitar FP.  
+4. Versionado: `tokens_suspicious_v*.csv`, revisión quincenal.
 
-![free_hosting](img/free_hosting_barplot.png)
+---
 
+## 🧩 6️⃣ Dependencias internas
 
+| Feature derivada | Componentes base | Tipo |
+|-------------------|-----------------|------|
+| `domain_complexity` | `domain_length`, `domain_entropy` | Auxiliar |
+| `infra_risk` | `is_http`, `tld_risk_weight`, `free_hosting` | Agregada |
+| `trusted_token_context` | `trusted_path_token`, `domain_whitelist_score` | Contextual |
+| `token_density` | `tokens_por_sector.csv`, `SUSPICIOUS_TOKENS_WEIGHT` | Lingüística |
 
-## Features descartadas
+📎 *Nota:* Ninguna feature base y su derivada coexisten en el modelo → evita doble conteo y mejora estabilidad.
 
-### `path_depth`
-- **Descripción:** número de segmentos en la ruta (`/`).  
-- **Resultados:** legítimas media = 4.2, phishing media = 3.3.  
-- **Diferencia absoluta = 0.9, relativa = 21% → no alcanza criterios mínimos.**  
-- **Conclusión:** descartada en el prototipo.  
+---
 
+## 📊 7️⃣ Evidencia empírica — Drift v1→v2
 
-### `contains_at`
-- **Descripción:** presencia del símbolo `@` en la URL.  
-- **Resultados:** aparece en 0 legítimas y 2 phishing (2%).  
-- **Cobertura extremadamente baja, y en campañas modernas apenas se utiliza.**  
-- **Conclusión:** descartada en el prototipo por falta de representatividad.  
+| Feature | Δ (%) | Interpretación |
+|----------|-------|----------------|
+| `domain_length` | −44 % | Dominios más cortos y creíbles. |
+| `domain_entropy` | −25 % | Menor aleatoriedad, más naturales. |
+| `num_params` | +189 % | Rutas con más parámetros dinámicos. |
+| `suspicious_path_token` | +33.7 pp | Incremento de rutas de acción. |
 
+📈 *Conclusión:* el phishing español actual usa **URLs limpias y semánticamente engañosas**, lo que valida el rediseño contextual de features.
 
-
-##  Conclusión
-El set final queda compuesto por:  
-- **Fuertes:** 5 (`num_params`, `contains_equal`, `protocol`, `tld_group`, `trusted_path_token`).  
-- **Moderadas:** 3 (`domain_length`, `domain_entropy`, `suspicious_path_token`).  
-- **Específicas:** 2 (`contains_percent`, `free_hosting`).  
-
-Este equilibrio asegura:  
-- Cobertura → todas las URLs activan ≥4 features.  
-- Variedad → mezcla de features estructurales, simbólicas, categóricas, de hosting y legitimadoras.  
-- Explicabilidad → cada feature está justificada con datos, criterios y visualizaciones.  
-- Transparencia → se documentan también las features descartadas (ej. `path_depth`, `contains_at`).  
-
-
-## 📊 Resumen de features y gráficas
-
-| Feature                | Tipo       | Gráfica                               | Clasificación |
-|-------------------------|------------|---------------------------------------|---------------|
-| `domain_length`         | Numérica   | ![domain_length](img/domain_length_hist.png) | Moderada      |
-| `domain_entropy`        | Numérica   | ![domain_entropy](img/domain_entropy_hist.png) | Moderada      |
-| `num_params`            | Numérica   | ![num_params](img/num_params_hist.png) | Moderada      |
-| `trusted_path_token`    | Binaria    | ![trusted_path_token](img/trusted_path_token_barplot.png) | **Fuerte** (legitimadora) |
-| `contains_percent`      | Binaria    | ![contains_percent](img/contains_percent_barplot.png) | De nicho     |
-| `contains_equal`        | Binaria    | ![contains_equal](img/contains_equal_barplot.png) | Moderada      |
-| `protocol`              | Binaria    | ![protocol](img/protocol_barplot.png) | **Fuerte**    |
-| `suspicious_path_token` | Binaria    | ![suspicious_path_token](img/suspicious_path_token_barplot.png) | Moderada      |
-| `free_hosting`          | Binaria    | ![free_hosting](img/free_hosting_barplot.png) | Específica    |
-| `tld_group`             | Categórica | ![tld_group](img/tld_group_barplot.png) | **Fuerte**    |
