@@ -1,203 +1,212 @@
-# Prompt técnico para generar `features_v2.py` (Versión v2)
+# FEATURES V2 — PROMPT PARA AIDER (VERSIÓN REFORZADA)
 
-Tu tarea es implementar el archivo `features_v2.py` siguiendo estrictamente estas especificaciones.  
-No añadas funciones, columnas ni lógica que no esté indicada aquí.  
-No utilices features internas como salida final.  
-No renombres ni alteres las columnas definidas en el output.
+## 🎯 Objetivo
+Generar el archivo `features_v2.py` siguiendo estrictamente estas reglas y la documentación de `features_v2.md`.  
+El archivo debe ser determinista, reproducible y sin invenciones.  
+No añadir features, no modificar constantes externas, no cambiar nombres, no alterar el orden de salida.
 
 ---
 
-## 1. Firma de la función
+## 1. Firma obligatoria de la función principal
 
-La función debe tener exactamente esta firma:
+Debes exportar una única función pública:
 
 ```python
-def extract_features(df: pd.DataFrame) -> pd.DataFrame:
-    ...
+def extract_features(url: str, domain_whitelist: list, tokens_por_sector: dict) -> dict:
 ```
 
-### Requisitos de entrada:
-- `df` debe contener una columna obligatoria:
-  - `url` (string): URL completa a analizar.
+Parámetros:
 
-### Requisitos de salida:
-- Un `DataFrame` con **solo** las 9 features finales.
-- Las columnas deben estar en el **orden exacto** definido.
-- Sin valores NaN (rellenar con 0).
-- Todas las columnas numéricas.
+- `url`: URL completa a analizar.  
+- `domain_whitelist`: lista de dominios españoles legítimos.  
+- `tokens_por_sector`: diccionario sectorial ya cargado desde CSV.
 
 ---
 
-## 2. Features finales (únicas válidas)
+## 2. Salida obligatoria (OUTPUT_COLUMNS)
 
-Estas son **las únicas columnas** que deben exportarse:
-
-```python
-OUTPUT_COLUMNS = [
-    "domain_complexity",
-    "host_entropy",
-    "domain_whitelist_score",
-    "suspicious_path_token",
-    "token_density",
-    "trusted_token_context",
-    "infra_risk",
-    "fake_tld_in_subdomain_or_path",
-    "param_count_boost",
-]
-```
-
-No se permite exportar ninguna columna fuera de esta lista.
-
----
-
-## 3. Features internas (prohibidas en el output)
-
-Estas features pueden usarse como pasos intermedios,  
-pero **NO deben aparecer en el DataFrame final**:
+El diccionario devuelto debe contener exactamente estas columnas, en este orden:
 
 ```python
-INTERNAL_FEATURES = [
-    "domain_length",
+[
     "domain_entropy",
-    "is_http",
-    "free_hosting",
+    "path_length",
+    "param_count",
+    "digit_ratio",
+    "fake_tld_in_subdomain_or_path",
+    "token_density",
+    "brand_in_path",
     "tld_risk_weight",
-    "trusted_path_token",
-    "trusted_path_penalty",
+    "trusted_token_context"
 ]
+```
+
+No exportar ninguna otra feature.
+
+---
+
+## 3. Features internas prohibidas en la salida
+
+Estas features pueden existir como variables internas, pero NUNCA deben aparecer en el diccionario final:
+
+```
+free_hosting_boost
+http_penalty
+trusted_path_token
+trusted_path_penalty
 ```
 
 ---
 
-## 4. Archivos externos necesarios
+## 4. Constantes externas obligatorias
 
-### Whitelist de dominios .es:
-- Ruta: `docs/dominios_espanyoles.csv`
-- Columna: `domain`
-
-Debe cargarse como lista de strings en minúsculas.
-
-### Tokens sectoriales:
-- Ruta: `docs/tokens_por_sector.csv`
-- Columnas: `sector`, `token`, `peso`
-El archivo `docs/tokens_por_sector.csv` ya está normalizado y no debe modificarse.  
-Tiene exactamente estas columnas:
-
-- `sector`
-- `token`
-- `peso`
-
-Todos los tokens están en minúsculas, sin tildes y sin duplicados.  
-Los pesos están normalizados al rango 0.5–1.5 para evitar dominancia en la feature `token_density`.
-
-La implementación debe:
-
-- cargar el archivo tal cual  
-- aplicar los pesos exactamente como aparecen  
-- no modificar los valores  
-- no transformar los tokens  
-
-### Dominios neutrales globales
-Ruta: `docs/global_neutral_domains.csv`
-Columna: `domain`
-Todos en minúsculas. No modificar este archivo.
-
-### Hosting gratuito:
-La constante FREE_HOSTING define todos los dominios de hosting gratuito, temporal o de baja reputación que deben detectarse.  
-La función free_hosting(url) debe devolver 1 si la URL contiene cualquiera de estos valores, 0 en caso contrario.
-No modificar esta lógica.
-
----
-
-## 5. Constantes importadas obligatorias
+Debes importarlas exactamente así:
 
 ```python
-from features.features_constantes import (
+from features_constantes import (
+    FAKE_TLD_TOKENS,
     SUSPICIOUS_TOKENS_WEIGHT,
-    GLOBAL_NEUTRAL_DOMAINS,
-    SAFE_TLDS,
-    COMMON_PHISH_TLDS,
-    HIGH_RISK_TLDS,
-    TOKEN_DENSITY_K,
-    HTTP_WEIGHT,
+    FREE_HOSTING,
+    BRAND_KEYWORDS,
+    TLD_RISK,
+    TRUSTED_TOKENS
 )
 ```
 
-No cambies, elimines ni crees constantes nuevas.
+No modificar listas ni pesos.
 
 ---
 
-## 6. Definición exacta de cada feature final
+## 5. Reglas de cálculo (versión reforzada)
 
-### 6.1 `domain_complexity`
-```text
-domain_complexity = domain_length * domain_entropy
+### 5.1 domain_entropy
+- Extraer dominio con `tldextract.extract(url).domain`.  
+- Calcular entropía de Shannon.  
+- Si error → 0.
+
+---
+
+### 5.2 path_length
+- Usar `urllib.parse.urlparse(url).path`.  
+- Contar los caracteres del path sin parámetros.  
+- Si no hay path → 0.
+
+---
+
+### 5.3 param_count
+- Obtener query con `urlparse(url).query`.  
+- Contar parámetros con `parse_qs`.  
+- Si error → 0.
+
+---
+
+### 5.4 digit_ratio
+- Contar dígitos en toda la URL.  
+- Dividir entre longitud total.  
+- Si longitud = 0 → 0.
+
+---
+
+### 5.5 fake_tld_in_subdomain_or_path
+- FAKE_TLD_TOKENS viene de `features_constantes.py`.  
+- Buscar cualquiera en subdominio (`extract.subdomain`) o path.  
+- Por substring.  
+- Si aparece uno → 1, si no → 0.
+
+---
+
+### 5.6 token_density
+
+Fórmula OBLIGATORIA:
+
+```
+token_density = ( Σ(weights) / total_tokens ) * ( path_depth / (path_depth + k) )
 ```
 
-### 6.2 `host_entropy`
-- Entropía de Shannon del subdominio extraído con `tldextract`.
+Σ(weights) =  
+- pesos de `SUSPICIOUS_TOKENS_WEIGHT`  
+- + pesos específicos según el sector (`tokens_por_sector`)
 
-### 6.3 `domain_whitelist_score`
-- 1 si el dominio registrado coincide o termina en un dominio de la whitelist.
-- 0 en caso contrario.
+Reglas fijas:
+- total_tokens = tokens del path (split / _ -)
+- path_depth = nº de segmentos del path  
+- k = 2  
+- error → 0  
+- no inventar tokens  
+- no añadir lógica nueva
 
-### 6.4 `suspicious_path_token`
-- 1 si el path contiene alguno de estos tokens en español:  
-  `verificar`, `pago`, `recibir`, `confirmar`, `paquete`, `sms`, `aduanas`, `3dsecure`  
-- 0 si no.
+---
 
-### 6.5 `token_density`
-Fórmula completa:
+### 5.7 brand_in_path
+- Detectar si el path contiene un substring de `BRAND_KEYWORDS`.  
+- Si sí → 1, si no → 0.
 
-```text
-token_density = (sum(weights) / total_tokens) * (path_depth / (path_depth + TOKEN_DENSITY_K))
+---
+
+### 5.8 tld_risk_weight
+- Extraer TLD con `tldextract.extract(url).suffix`.  
+- Buscar en `TLD_RISK`.  
+- Si no existe → 0.
+
+---
+
+## 6. trusted_token_context
+
+Construir EXACTAMENTE:
+
+```
+trusted_token_context = trusted_path_token - trusted_path_penalty
 ```
 
-### 6.6 `trusted_token_context`
+### trusted_path_token
+1 si el path contiene tokens de `TRUSTED_TOKENS`, si no 0.
+
+### trusted_path_penalty
+1 si:
+- el path contiene tokens de confianza
+- Y el dominio NO está en `domain_whitelist`
+
+Si no → 0.
+
+NO añadir pesos ni condiciones.
+
+---
+
+## 7. free_hosting_boost (interno)
+```
+free_hosting_boost = 1 si url contiene cualquier substring de FREE_HOSTING, si no 0
+```
 Reglas:
+- búsqueda literal  
+- no modificar FREE_HOSTING  
+- no exportarlo  
 
-```text
-+1 si trusted_path_token == 1 y domain_whitelist_score == 1
--1 si trusted_path_token == 1 y domain_whitelist_score == 0
- 0 en otros casos
+---
+
+## 8. http_penalty (interno)
+
+```
+http_penalty = 1 si la url empieza por "http://" y no por "https://"
 ```
 
-### 6.7 `infra_risk`
 
-```text
-infra_risk = HTTP_WEIGHT * is_http + tld_risk_weight + free_hosting
-```
 
-### 6.8 fake_tld_in_subdomain_or_path
-1 si el subdominio o path contienen cualquiera de los tokens definidos en FAKE_TLD_TOKENS.
+## 9. Restricciones generales
+- Cualquier excepción → 0.  
+- No usar pandas.  
+- Solo usar urllib, tldextract, re, math.  
+- No modificar archivos externos.  
+- No añadir columnas nuevas.  
+- No cambiar el orden de OUTPUT_COLUMNS.
 
-### 6.9 `param_count_boost`
-Número de símbolos `=` en la URL, como float.
 
----
+## 10. Entrega final
 
-## 7. Requisitos del DataFrame final
+El archivo `features_v2.py` debe incluir:
+1. Imports  
+2. Funciones auxiliares  
+3. La función principal `extract_features`  
+4. Nada más  
+(no tests, no ejecución directa)
 
-- Solo `OUTPUT_COLUMNS`
-- En el **orden exacto**
-- Sin columnas adicionales
-- Sin NaN (rellenar con 0)
-- Todas numéricas
 
----
-
-## 8. Reglas estrictas
-
-1. No añadir features nuevas.  
-2. No exportar internas.  
-3. No cambiar nombres ni orden.  
-4. Nada fuera de estas especificaciones.  
-5. Usar `tldextract` obligatoriamente.  
-6. Si un cálculo falla → devolver 0.
-
----
-
-## 9. Objetivo
-
-Generar `features_v2.py` alineado con este documento  
-y con `features_v2.md`, implementando **exactamente** las 9 features finales.
