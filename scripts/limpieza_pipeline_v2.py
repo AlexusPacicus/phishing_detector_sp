@@ -55,10 +55,21 @@ def is_host_compromised(url):
     )
     return bool(re.search(pattern, url, re.IGNORECASE))
 
-def load_whitelist(path):
-    if not path.exists():
-        sys.exit(f"❌ ERROR: No se encontró el archivo de whitelist en {path}")
-    return pd.read_csv(path)["domain"].str.lower().tolist()
+def load_whitelist(path: str) -> set[str]:
+    import pandas as pd
+    import tldextract
+
+    df = pd.read_csv(path)
+    if "domain" not in df.columns:
+        raise ValueError("Whitelist CSV must contain a 'domain' column.")
+
+    wl = set()
+    for d in df["domain"].dropna().astype(str):
+        # Normalizar a registered_domain.lower().strip()
+        rd = tldextract.extract(d).registered_domain
+        if rd:
+            wl.add(rd.lower().strip())
+    return wl
 
 # === 🚀 PIPELINE PRINCIPAL ===
 if __name__ == "__main__":

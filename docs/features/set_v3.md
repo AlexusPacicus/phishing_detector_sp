@@ -301,99 +301,34 @@ Valores: {-1, 0, +1}
 
 Definición
 
-Contextualiza la confiabilidad del dominio combinando la whitelist y coincidencias de marca.
+Contextualiza la confiabilidad del dominio combinando whitelist y coincidencias de marca del CSV.
 
 Regla exacta
-𝑡
-𝑟
-𝑢
-𝑠
-𝑡
-𝑒
-𝑑
-_
-𝑡
-𝑜
-𝑘
-𝑒
-𝑛
-_
-𝑐
-𝑜
-𝑛
-𝑡
-𝑒
-𝑥
-𝑡
-=
-{
-+
-1
-	
-si 
-𝑑
-𝑜
-𝑚
-𝑎
-𝑖
-𝑛
-_
-𝑤
-ℎ
-𝑖
-𝑡
-𝑒
-𝑙
-𝑖
-𝑠
-𝑡
-=
-1
+ 
+```
+trusted_token_context =
+    +1  si domain_whitelist == 1
+     0  si domain_whitelist == 0 AND core ∈ brands_set
+    -1  en otro caso
+```
 
+Fuentes de verdad
 
-0
-	
-si 
-𝑏
-𝑟
-𝑎
-𝑛
-𝑑
-_
-𝑚
-𝑎
-𝑡
-𝑐
-ℎ
-=
-1
+| Valor | Fuente | Condición |
+|-------|--------|-----------|
+| +1 | `docs/whitelist.csv` | Dominio oficial verificado |
+| 0 | `docs/dominios_espanyoles.csv` | Marca española detectada (no oficial) |
+| -1 | — | Sin señal de legitimidad |
 
+Justificación de TTC = 0
 
-−
-1
-	
-en otro caso
-trusted_token_context=
-⎩
-⎨
-⎧
-	​
-
-+1
-0
-−1
-	​
-
-si domain_whitelist=1
-si brand_match=1
-en otro caso
-	​
+Cuando el dominio NO está en whitelist pero SÍ coincide con una marca del CSV (`brands_set`), se asigna contexto neutro. Esto evita penalizar dominios legítimos con TLDs globales (.com, .net) que no están en whitelist oficial.
 
 Importante
 
-No depende del PATH.
-
-Limpia, estable y anti-FP.
+- No depende del PATH.
+- `brands_set` proviene de `dominios_espanyoles.csv`, NO de whitelist.
+- Limpia, estable y anti-FP.
 
 4️⃣ host_entropy
 
@@ -540,123 +475,125 @@ Características
 
 Señal fuerte en phishing .live, .app, .top, .shop, .xyz.
 
-6️⃣ suspicious_path_token
+---
+
+## Fuente de verdad de marcas españolas
+
+### Origen exclusivo
+
+Las marcas españolas para `brand_in_path`, `brand_match_flag` y `trusted_token_context (0)` se derivan **exclusivamente** de:
+
+```
+docs/dominios_espanyoles.csv
+```
+
+**NO se derivan de whitelist.**
+
+### Construcción de brands_set
+
+```python
+brands_set = constants["BRANDS_FROM_DOMAINS_ES"]
+```
+
+### Requisito de inicialización
+
+```python
+load_brands_from_domains_es(constants)
+```
+
+Debe ejecutarse **antes** de cualquier llamada a `extract_features_v3()`.
+
+### Diferencia whitelist vs brands_set
+
+| Aspecto | whitelist | brands_set (CSV) |
+|---------|-----------|------------------|
+| Fuente | `docs/whitelist.csv` | `docs/dominios_espanyoles.csv` |
+| Uso | domain_whitelist, TTC +1, domain_complexity bypass | brand_match_flag, brand_in_path, TTC 0 |
+
+---
+
+6️⃣ brand_in_path
 
 Tipo: int
 Valores: {0, 1}
 
 Definición
 
-Indica si el PATH contiene tokens léxicos de phishing robustos definidos en tu diccionario actual.
+Detecta si el último segmento del path contiene una marca española conocida.
 
-Ejemplos:
-verificar, confirmar, pago, paquete, envio, 3dsecure, sms, etc.
+Fuente de marcas
 
-Regla
-𝑠
-𝑢
-𝑠
-𝑝
-𝑖
-𝑐
-𝑖
-𝑜
-𝑢
-𝑠
-_
-𝑝
-𝑎
-𝑡
-ℎ
-_
-𝑡
-𝑜
-𝑘
-𝑒
-𝑛
-=
-{
-1
-	
-si existe alg
-u
-ˊ
-n token sospechoso en el PATH
+`brands_set` derivado de `docs/dominios_espanyoles.csv` via `constants["BRANDS_FROM_DOMAINS_ES"]`.
 
+Reglas
 
-0
-	
-si no
-suspicious_path_token={
-1
-0
-	​
+- Tomar `last_segment = url.split("/", 3)[-1].lower()`.
+- Tokenizar según el regex exacto: `[\/\-\_\.\=\&\?\%]`.
+- Comparar tokens con `brands_set`.
+- Solo activar si `domain_whitelist == 0`.
 
-si existe alg
-u
-ˊ
-n token sospechoso en el PATH
-si no
-	​
+Salida
 
-7️⃣ brand_in_path
+- 1 si se detecta una marca válida en el path.
+- 0 en caso contrario.
+
+---
+
+7️⃣ brand_match_flag
 
 Tipo: int
 Valores: {0, 1}
 
 Definición
 
-Detecta abuso explícito de marca en el PATH cuando la URL no es legítima.
+Indica si el núcleo del dominio coincide con una marca española conocida.
 
-Procedimiento
+Fuente de marcas
 
-Tokenizar PATH por separadores duros (-, _, /, %20, .).
+`brands_set` derivado de `docs/dominios_espanyoles.csv` via `constants["BRANDS_FROM_DOMAINS_ES"]`.
 
-Comparar tokens con la lista de marcas españolas.
+Construcción
 
-Activar solo si domain_whitelist == 0.
+```python
+brands_set = constants["BRANDS_FROM_DOMAINS_ES"]
+```
 
 Regla
-𝑏
-𝑟
-𝑎
-𝑛
-𝑑
-_
-𝑖
-𝑛
-_
-𝑝
-𝑎
-𝑡
-ℎ
-=
-{
-1
-	
-si marca_espa
-n
-˜
-ola_tokenizada ∈ PATH y domain_whitelist=0
 
+```python
+brand_match_flag = int(core in brands_set)
+```
 
-0
-	
-en otro caso
-brand_in_path={
-1
-0
-	​
+Salida
 
-si marca_espa
-n
-˜
-ola_tokenizada ∈ PATH y domain_whitelist=0
-en otro caso
-	​
+- 1 si el dominio coincide con una marca del CSV.
+- 0 si no coincide.
 
-Notas
+Rol en TTC
 
-Cero falsos positivos confirmados.
+`brand_match_flag == 1` con `domain_whitelist == 0` → TTC = 0 (contexto neutro).
 
-Extremadamente útil en logística y banca españolas.
+---
+
+## Vector contractual FINAL v3
+
+```python
+FEATURES_V3 = [
+    "domain_complexity",
+    "domain_whitelist",
+    "trusted_token_context",
+    "host_entropy",
+    "infra_risk",
+    "brand_in_path",
+    "brand_match_flag"
+]
+```
+
+## Contrato de inicialización
+
+```python
+from features.features_constantes import constants, load_brands_from_domains_es
+
+# OBLIGATORIO antes de extract_features_v3()
+load_brands_from_domains_es(constants)
+```

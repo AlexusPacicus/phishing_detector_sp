@@ -1,146 +1,115 @@
-Feature: brand_in_path — Versión v3 FINAL
-Objetivo
+# Feature: brand_in_path — Especificación v3 FINAL
 
-Detectar abuso explícito de marca en el path de una URL, siempre que el dominio no sea legítimo.
-Es una señal directa y moderna que captura campañas reales de phishing (banca, logística, telcos), donde los atacantes insertan el nombre de la entidad en la ruta.
+**Estado:** CERRADO  
+**Posición en vector:** 6  
+**Dependencia crítica:** `constants["BRANDS_FROM_DOMAINS_ES"]`
 
-1. Materia prima
-1.1 Extracción del path
+---
 
-Para mantener coherencia con el pipeline existente:
+## 1. Definición
 
+Detecta presencia de una marca española en el path de la URL, activándose únicamente cuando el dominio NO es legítimo.
+
+| Atributo | Valor |
+|----------|-------|
+| Tipo | int |
+| Valores | {0, 1} |
+| Activación | Solo si `domain_whitelist == 0` |
+
+---
+
+## 2. Fuente de verdad de marcas españolas
+
+### 2.1 Origen
+
+Las marcas se derivan **exclusivamente** de `docs/dominios_espanyoles.csv`.
+
+**NO se derivan de:**
+- Whitelist
+- Dataset de entrenamiento
+- Listas manuales
+
+### 2.2 Construcción de `brands_set`
+
+```python
+brands_set = constants["BRANDS_FROM_DOMAINS_ES"]
+```
+
+### 2.3 Requisito de inicialización
+
+```python
+load_brands_from_domains_es(constants)
+```
+
+Debe ejecutarse **antes** de cualquier llamada a `extract_features_v3()`.
+
+---
+
+## 3. Algoritmo
+
+### 3.1 Extracción del path
+
+```python
 path = url.split("/", 3)[-1].lower()
+```
 
+Devuelve el segmento final tras el tercer `/`.
 
-Esto devuelve solo el segmento final del path tras el tercer /.
-Esto simplifica la detección y funciona bien en la práctica porque:
+### 3.2 Tokenización
 
-Las marcas suelen aparecer al final (/bbva/login, /correos/seguridad, /caixabank/verify)
-
-No es sensible a la estructura completa del path
-
-Reduce ruido en paths largos o aleatorios
-
-1.2 Tokenización
-
-El path se divide estrictamente por caracteres separadores:
-
-/  -  _  .  =  &  ?  %
-
-
-En forma de expresión regular:
-
+```python
 tokens = re.split(r"[\/\-\_\.\=\&\?\%]", path)
+```
 
+Separadores: `/`, `-`, `_`, `.`, `=`, `&`, `?`, `%`
 
-La tokenización es exacta y no ambigua.
+### 3.3 Detección de marca
 
-1.3 Origen de brands_set
+```python
+brand_in_path_raw = int(any(t in brands_set for t in tokens if t))
+```
 
-En v3, las marcas NO se extraen de label==0 del dataset.
+Comparación **exacta** de tokens, no substrings.
 
-El set oficial de marcas se construye a partir de:
+### 3.4 Protección por dominio legítimo
 
-Whitelist española (dominios oficiales .es)
+```python
+brand_in_path = brand_in_path_raw if domain_whitelist == 0 else 0
+```
 
-Dominios globales neutros
+---
 
-(Opcional) lista manual validada de entidades críticas (banca, logística, telco)
+## 4. Ejemplos
 
-Regla final:
+| URL | Tokens | domain_whitelist | Resultado |
+|-----|--------|------------------|-----------|
+| `https://seguridad-bbva.live/bbva/login` | [bbva, login] | 0 | 1 |
+| `https://correos.es/estado/paquete` | [estado, paquete] | 1 | 0 |
+| `https://aq29qx.top/correos/verify` | [correos, verify] | 0 | 1 |
+| `https://random.xyz/bbvaseguridad` | [bbvaseguridad] | 0 | 0 (no exacto) |
 
-brands_set = { registered_domain.split(".")[0] for registered_domain in WHITELIST }
+---
 
+## 5. Propiedades
 
-Ejemplos:
+| Propiedad | Estado |
+|-----------|--------|
+| Falsos positivos | 0 confirmados |
+| Recall en campañas ES | Alto (banca, logística, telco) |
+| Dependencia de path | Solo segmento final |
+| Solapamiento con TTC | Ninguno (TTC no analiza path) |
 
-bbva.es → bbva
+---
 
-caixabank.es → caixabank
+## 6. Relación con otras features
 
-correos.es → correos
+| Feature | Relación |
+|---------|----------|
+| domain_whitelist | brand_in_path solo activa si esta = 0 |
+| trusted_token_context | Complementarias; TTC no usa path |
+| brand_match_flag | brand_in_path detecta marca en path; brand_match_flag en dominio |
+| infra_risk | Se combinan bien: host random + marca en path |
 
-santander.com → santander
+---
 
-repsol.com → repsol
-
-iberia.com → iberia
-
-Esto garantiza reproducibilidad y elimina dependencias del dataset.
-
-2. Lógica de activación
-2.1 Activación cruda
-brand_in_path_raw = 1 si existe algún token t ∈ tokens tal que t == marca
-
-
-Comparación estrictamente exacta, sin substrings:
-
-✔ …/bbva/login → activa
-
-✔ …/correos/track → activa
-
-✖ …/bbvaseguridad → no activa
-
-✖ …/correosExpress → no activa
-
-2.2 Activación final (protegida por dominio legítimo)
-
-La feature se activa solo si el dominio NO es legítimo:
-
-brand_in_path_final = 1 
-    si brand_in_path_raw == 1 
-    y domain_whitelist == 0
-
-
-Si el dominio está en la whitelist:
-
-brand_in_path_final = 0
-
-
-Ejemplo:
-https://correos.es/estado/paquete → tokens contienen “correos” pero domain_whitelist = 1 → NO activa.
-
-3. Motivación
-
-Los atacantes en España abusan de marcas en la ruta mucho más que en el dominio.
-
-La detección en path es estable incluso cuando el host es aleatorio (aq29qx.live).
-
-Es una señal binaria, limpia y sin ruido, perfecta para LR/XGBoost.
-
-Aporta separación que domain_complexity, host_entropy o infra_risk no capturan directamente.
-
-4. Propiedades deseables
-✔ Cero falsos positivos
-
-Confirmado empíricamente:
-brand_in_path_final == 1 y label == 0 → 0 casos.
-
-✔ Muy buen recall para campañas españolas
-
-Activa correctamente en:
-
-Phishing de banca
-
-Phishing de Correos
-
-Phishing de MRW/SEUR
-
-Phishing de Iberdrola / Endesa
-
-Kits genéricos que copian rutas de marca
-
-✔ Complementaria a TTC v28
-
-TTC detecta legitimidad del dominio.
-brand_in_path detecta abuso de marca cuando NO hay legitimidad.
-
-5. Interacciones con el pipeline v3
-Feature	Relación
-domain_whitelist	brand_in_path solo se activa si esta = 0
-domain_complexity	Complementa casos con hosts neutros pero rutas manipuladas
-host_entropy	No interfiere, opera en otra capa
-infra_risk	Se combinan muy bien: dominio random + marca en path
-trusted_token_context	TTC nunca usa el path; no hay doble conteo
-
-Nota: el extractor analiza únicamente el segmento final del path (tras el tercer "/"), siguiendo la implementación actual (`url.split("/", 3)[-1]`).
+*Feature contractual del vector v3.*
