@@ -85,10 +85,15 @@
 | `domain_complexity` | float64 | [0.0, 1.0] |
 | `domain_whitelist` | int64 | {0, 1} |
 | `trusted_token_context` | int64 | {-1, 0, +1} |
-| `host_entropy` | float64 | [0.0, ~3.0] |
-| `infra_risk` | float64 | [0.0, 5.0] |
+| `host_entropy` | float64 | [0.0, ~4.5] |
+| `infra_risk` | float64 | [0.0, ~3.5] |
 | `brand_in_path` | int64 | {0, 1} |
 | `brand_match_flag` | int64 | {0, 1} |
+
+**Nota sobre rangos:**
+- `host_entropy`: Entropía Shannon raw del subdominio, sin normalizar. Rango observado empíricamente.
+- `infra_risk`: Suma aditiva de componentes de riesgo, sin normalizar. Rango observado empíricamente.
+- Interpretación de ambas features es relativa al dataset; no son scores 0–1.
 
 ### 2.3 Invariantes
 

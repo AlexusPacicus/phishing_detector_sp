@@ -51,13 +51,12 @@ def initialize_v3(
     brands_path: str = "docs/dominios_espanyoles.csv"
 ):
     """
-    Inicialización v3: carga whitelist, constants y brands_set en un solo paso.
-    Cumple asserts contractuales y devuelve (whitelist, constants).
+    Inicializador canónico para el extractor v3.
+    Carga whitelist, brands_set y constants de forma contractual.
     """
     from features.features_constantes import constants
     whitelist = load_whitelist_v3(whitelist_path)
     load_brands_set_v3(brands_path, constants)
-    # Asserts contractuales obligatorios
     assert isinstance(whitelist, set) and len(whitelist) > 0
     assert "BRANDS_FROM_DOMAINS_ES" in constants
     assert isinstance(constants["BRANDS_FROM_DOMAINS_ES"], set)

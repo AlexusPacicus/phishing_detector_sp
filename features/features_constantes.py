@@ -227,4 +227,11 @@ TOKEN_DENSITY_K = 2.0
 # Peso bajo para HTTP dentro de infra_risk()
 HTTP_WEIGHT = 0.30
 
+constants = {
+    "TLD_RISK": TLD_RISK,
+    "GLOBAL_NEUTRAL_DOMAINS": GLOBAL_NEUTRAL_DOMAINS,
+    "FREE_HOSTING": FREE_HOSTING,
+    "HTTP_WEIGHT": HTTP_WEIGHT,
+}
+
 
