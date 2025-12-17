@@ -1,3 +1,11 @@
+
+Estado del proyecto:
+- Prototipo V2: CERRADO
+- Extractor contractual: FEATURES_V3
+- FEATURES_V2: OBSOLETO (prohibido)
+- No existe un prototipo V3 funcional todavía
+
+
 # 🛡️ Phishing Detector (Prototipo Español)
 
 ![Python](https://img.shields.io/badge/python-3.11-blue.svg)
