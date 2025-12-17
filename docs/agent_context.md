@@ -1,134 +1,79 @@
-# Agents Context — Phishing Detector
-
-Este documento define el **contexto general, el contrato técnico y la arquitectura**
-del proyecto *Phishing Detector*, y sirve como **fuente única de verdad**
-para cualquier agente o automatización que interactúe con el repositorio.
-
- Este proceso es **arquitectónico**, no de mejora funcional.
 
 ---
 
-## 1. Estado del proyecto (CONTRATO)
+# 3. Separación conceptual (MANDATARIA)
 
-- **Prototipo vigente:** V2 — **CERRADO**
-- **Extractor contractual vigente:** `FEATURES_V3`
-- **FEATURES_V2:** **OBSOLETO** (prohibido)
-- **No existe un prototipo V3 funcional todavía**
-
-`FEATURES_V3` es una **corrección estructural** del extractor del prototipo V2.
-No constituye una nueva versión del sistema.
-
----
-
-## 2. Objetivo del trabajo actual
-
-- Reorganizar el repositorio según una arquitectura clara y defendible
-- Separar explícitamente:
-  - código vigente
-  - histórico del prototipo V2
-  - investigación exploratoria
-- Mantener **inalterados**:
-  - lógica
-  - métricas
-  - resultados
-  - modelos entrenados
+Carpeta | Rol
+-------|-----
+**src/** | Código vigente. Todo lo que esté activo debe vivir aquí.
+**legacy/** | Material histórico del prototipo V2. No ejecutable. No editable.
+**notebooks/** | Investigación libre sin contrato.
+**scripts/** | Utilidades sueltas no contractuales.
+**docs/** | Documentación sincronizada con el estado real del sistema.
 
 ---
 
-## 3. Principios no negociables
+# 4. Reglas NO negociables para agentes
 
-Cualquier agente o proceso automatizado debe cumplir:
+## ❌ PROHIBIDO
 
-- ❌ No introducir nuevas features
-- ❌ No reinterpretar versiones (V2 ≠ V3)
-- ❌ No reactivar `FEATURES_V2`
-- ❌ No mejorar código, rendimiento o métricas
-- ❌ No borrar archivos
+- Usar, importar o reactivar `features_v2.py`
+- Crear nuevas features o modificar `FEATURES_V3`
+- Reinterpretar versiones (V2 ≠ V3)
+- Alterar modelos, métricas o resultados ya generados
+- Modificar o mover contenido dentro de `legacy/`
+- Ejecutar cambios sin aprobación del Architecture Guardian
 
-✔ `FEATURES_V3` es el **único extractor permitido**  
-✔ Ante cualquier ambigüedad → **detenerse y preguntar**
+## ✔ OBLIGATORIO
 
----
-
-## 4. Arquitectura objetivo del repositorio
-
-phishing-detector/
-│
-├── README.md
-│
-├── data/
-│ ├── raw/
-│ ├── interim/
-│ │ └── prototipo_v2/
-│ └── processed/
-│ └── prototipo_v2/
-│
-├── docs/
-│ ├── arquitectura.md
-│ ├── limpieza/
-│ ├── eda/
-│ ├── scoring/
-│ ├── features/
-│ │ ├── features_v2.md # OBSOLETO
-│ │ └── features_v3.md # CONTRACTUAL
-│ └── inclusion/
-│
-├── notebooks/
-│ ├── limpieza/
-│ ├── eda/
-│ ├── scoring/
-│ ├── entrenamiento/
-│ └── semantic/
-│
-├── src/
-│ ├── scraping/
-│ ├── scoring/
-│ │ ├── scoring_v2.py # legacy
-│ │ └── scoring_v3.py # vigente
-│ ├── features/
-│ │ ├── features_v2.py # legacy (prohibido)
-│ │ └── features_v3.py # extractor contractual
-│ ├── model/
-│ └── semantic/
-│
-├── api/
-│ └── fastapi_azure.py
-│
-├── models/
-│ └── prototipo_v2/
-│ ├── logreg_phishing.joblib
-│ └── metadata.json
-│
-├── scripts/
-├── outputs/
-├── reports/
-├── legacy/
-│ └── _unsorted/
-└── logs/
+- Validar cualquier acción contra este contrato
+- Mantener `FEATURES_V3` como **único extractor activo**
+- Respetar la arquitectura objetivo
+- Detenerse y preguntar ante cualquier ambigüedad
 
 ---
 
-## 5. Separación conceptual de áreas
+# 5. Excepción explícita: **SCORING_V2 ES ACTIVO**
 
-- **`src/`**  
-  Código ejecutable alineado con el contrato vigente.
+Aunque `FEATURES_V2` está deprecado,
+**SCORING_V2 sigue siendo parte del sistema operativo**  
+porque **NO depende de features_v2.py**.
 
-- **`legacy/`**  
-  Material histórico del prototipo V2. No se modifica.
+Reglas:
 
-- **`notebooks/`**  
-  Investigación y exploración sin contrato.
+- `scripts/scoring_v2.py` **permanece fuera de legacy/**
+- No debe moverse
+- No debe confundirse con features_v2.py
+- Puede ser ejecutado libremente
 
-- **`docs/`**  
-  Documentación viva alineada con la realidad del sistema.
+✔ Regla clave:  
+**SCORING_V2 ≠ FEATURES_V2**
 
 ---
 
-## 6. Uso por agentes
+# 6. Reglas para modificar este contrato
 
-Cualquier agente debe:
-1. Leer y respetar este documento antes de actuar
-2. Ajustarse estrictamente al contrato aquí descrito
-3. Ejecutar solo las acciones que le correspondan según su rol operativo
+- Ningún agente puede modificar `agent_context.md`
+- Solo el usuario tiene autoridad para cambiarlo
+- Si un agente detecta ambigüedad → **DEBE detenerse**
 
-Los **prompts específicos de cada agente** se definen en un documento separado.
+---
+
+# 7. Uso por agentes
+
+Todos los agentes deben:
+
+1. Leer este archivo **antes de actuar**
+2. Validar cada acción contra el contrato
+3. Emitir veredicto:
+   - **OK** → se puede ejecutar  
+   - **BLOQUEADO** → no permitido
+4. Solo ejecutar si **Architecture Guardian** da luz verde  
+5. Detenerse si el flujo involucra:
+   - Reactivar V2  
+   - Cambiar modelos  
+   - Romper la arquitectura  
+
+---
+
+# Fin del contrato maestro

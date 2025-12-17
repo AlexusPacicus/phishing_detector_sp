@@ -9,7 +9,7 @@ import pandas as pd
 from datetime import datetime
 import subprocess
 from features.features_v3 import FEATURES_V3
-from scripts.extract_features_dataset_v3 import extract_features_dataset_v3
+from src.features.extract_features_dataset_v3 import extract_features_dataset_v3
 from features.loaders_v3 import initialize_v3
 import hashlib
 

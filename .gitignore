@@ -39,3 +39,6 @@ Thumbs.db
 logs/*.log
 scripts/logs/*.log
 .aider*
+
+# Legacy del prototipo V2 (no forma parte del sistema activo)
+legacy/
