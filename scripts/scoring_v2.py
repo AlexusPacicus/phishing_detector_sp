@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 scoring_v2.py
-Versión: 2.0 (v1.7)
+Versión: 2.0 
 
 Este módulo contiene una implementación actualizada del sistema heurístico de
 scoring para priorizar URLs sospechosas de phishing orientadas a usuarios en
