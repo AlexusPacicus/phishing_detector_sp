@@ -1,8 +1,0 @@
-# Ignorar absolutamente todo
-*
-
-# Excepción: permitir el README
-!README.md
-
-# (Opcional) permitir también el propio .gitignore
-!.gitignore
