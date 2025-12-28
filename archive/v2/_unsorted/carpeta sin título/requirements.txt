@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn==1.6.1
+matplotlib
+seaborn
+tldextract
+joblib
+notebook
+requests
+fastapi
+uvicorn[standard]
+joblib
+tldextract
+pydantic
+pytest
+gunicorn
