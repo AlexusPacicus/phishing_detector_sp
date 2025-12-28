@@ -1,5 +1,6 @@
-
 ⚠️ Repositorio archivado.
-Repo de presentación: [link al repo nuevo](https://github.com/AlexusPacicus/phishing-detection-sp-overview)
 
-El desarrollo técnico se continuará en privado
+👉 Repositorio de presentación:  
+https://github.com/AlexusPacicus/phishing-detection-sp-overview
+
+El desarrollo técnico activo del sistema se mantiene en un repositorio privado.
